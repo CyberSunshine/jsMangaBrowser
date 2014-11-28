@@ -1,16 +1,12 @@
 'use strict'; // Remonte d'avantage les erreurs de code
 
-/*TODO
-
-- Sort latest list
-- Remove Duplicate in top list
-- somemanga.html button toggle class
-*/
+ //Nombre de page dans chaque chapitre.
+var chapterNb = [32,33,31,34];
 //------------------------------------------------------------------------ Chargement initial
 //----------------------------------------------------------------------------------------------------------------------------Active
 $(document).ready(function(){
 //-------------------------------------------On Start
-var chapterNb = [32,33,31,34]; //Nombre de page dans chaque chapitre.
+	
 //------------------------------------------------------------Active------------Header Search Box Focus & Clear
 
 	var msgDefault = 'Rechercher';
@@ -67,8 +63,7 @@ var chapterNb = [32,33,31,34]; //Nombre de page dans chaque chapitre.
 //------------------------------------------------------------------------Boutton A-Z
 
 	$("#btn_latest").click(function(){
-		
-	$container.isotope({ sortBy: 'name' })
+		$container.isotope({ sortBy: 'name' })
 	});
 //------------------------------------------------------------------------Boutton Collapse
 
@@ -265,17 +260,39 @@ $( function() {
   });
   
 });
-//------------------------------------------------------------------------Fin Isotope
-//----------------------------------------------manga/somemanga.html
-function getNextMangaPage(){
+//----------------------------------------------Fin Isotope
+/*
 	var z = 0;
 	//alert( $('.manga_img')[0].src );
 	var a = $('.manga_img')[0].src;
 	var b = a.indexOf('/1/');
 	alert(b);
-	var c = a.substr(b+3,3);
+	var c = parseInt(a.substr(b+3,3));
 	alert(c);
-	//$('.manga_img').attr('src', '../m/shinozaki/1/003.jpg');
+	
+	
+*/
+//-----------------------------------------------------------------------manga/somemanga.html
+function getNextMangaPage(){
+	
+	var a = $('.manga_img')[0].src;
+	var b = a.indexOf('/',a.indexOf('/m/')+3); //First '/' after /m/
+	//alert(b);
+	var c = parseInt(a.substr(b+1,1));// get current chapter number
+	//alert(c);
+	var d = parseInt(a.substr(b+3,3)); // get current page number
+	
+	if((d == chapterNb[c-1]) && (c != chapterNb.length)){ //Change chapter when the end is reach
+		c++;
+		d=0;
+	}
+	if(true){
+		d++;
+		var page = "" + d;
+		var pad = "000";
+		page = pad.substring(0, pad.length - page.length) + page;
+		$('.manga_img').attr('src', '../m/shinozaki/'+ c +'/' + page + '.jpg');
+	}
 }
 
 

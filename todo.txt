@@ -1,0 +1,35 @@
+-------------
+Global
+-------------
+(1)	-Footer-----------------------------------------------------------------
+-------------
+index.html
+-------------
+		- Sort latest list by release date
+		- Remove Duplicate in top list (latest and random button)
+(3)		-getRandomNonRepeatingNumbers(x,n)
+				x=range, n=amount of number
+				Returns an array of numbers
+		- Top 10 div
+		- Add sort by volume in the isotope list
+--------------------------
+somemanga.html
+--------------------------
+(2)	-somemanga.html button toggle class
+(1)	-Complete the volume 'select'----------------------
+		-plug left and right arrow key
+(2)		-Complete the page 'navigation bar'
+(1)			-getNextMangaPage()-------------------------------CyS
+					-png detection
+
+
+--------------------------
+somemanga.html
+--------------------------
+(1)	-inscription.html----------------------------------------
+			-Validation
+	
+--------------------------
+extra
+--------------------------
+	-fix getNextMangaPage() to work on additional manga automaticly
