@@ -1,7 +1,6 @@
 ﻿<!doctype html>
 <html>
 	<head>
-		
 		<meta charset="utf-8">
 		<title>Travail Pratique</title>
 		<script src="../js/jquery/jquery-1.11.1.min.js"></script>
@@ -14,15 +13,40 @@
 	<body>
 <!-- ================================== Header Debut ======================== -->
 		<div id='header'>
-			<a id="headerTitle" href="index.html">Manga Supreme</a>
+			<a id='headerTitle' href='../index.html'>Manga Supreme</a>
 			<input id='headerSearch' type='text' placeholder='Recherche' />
 		</div>
+		<div class="header_no_overlap"></div>
 <!-- =================================== Header Fin ======================== -->
 
 <!-- ===================================== Body =========================== -->
-<div id='main_div'>
+<div id='manga_body_div'>
 
+	<div id='manga_div'>
+	<h1>Shinozaki-san Ki o Ota Shika ni! ch:1</h1>
+	<select id='chapter_select'>
+		<option>Vol: 01 Ch:001</option>
+		<option>Vol: 02 Ch:002</option>
+		<option>Vol: 03 Ch:003</option>
+		<option>Vol: 04 Ch:004</option>
+	</select>
+	<ul id='btn_left' class='chapter_ul'>
+		<li><------------</li></ul>
+	<ul id='btn_mid' class='chapter_ul'>
+		<li class='ch_selected'>1</li><!--
+		--><li>2</li><!--
+		--><li>3</li><!--
+		--><li>4</li><!--
+		--><li>5</li><!--
+		--><li>...</li><!--
+		--><li>18</li><!--
+		--><li>19</li>
+	</ul>
+	<ul id='btn_right' class='chapter_ul'>
+		<li>-----------></li></ul>
+	<img class='manga_img' src='../m/shinozaki/1/001.jpg'>
 
+	</div>
 </div>
 <!-- ====================================== Body  Fin=========================== -->
 	</body>

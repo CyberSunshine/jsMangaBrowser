@@ -1,192 +1,198 @@
 @charset "UTF-8";
 /*----------------------------------Global----------------------------------*/
-div, body, p, a{
-margin:0;
-padding:0;
+div, body, p, a, ul, li{
+	margin:0;
+	padding:0;
 }
 body{
-background-color:#111;
+	background-color:#111;
 }
 .button{
-margin:10px;
-padding:5px;
-outline: none;
+	margin:10px;
+	padding:5px;
+	outline: none;
 }
 /*
 .button{
-border: 2px solid black;
-font-size:30px;
-margin:10px;
-padding:5px;
--webkit-border-radius: 10px;
--moz-border-radius: 10px;
-border-radius: 10px;
-outline: none;
-cursor:pointer;
+	border: 2px solid black;
+	font-size:30px;
+	margin:10px;
+	padding:5px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	outline: none;
+	cursor:pointer;
 }
 .btn_vert{
-background-color:green;
-color:#00FFCC;
+	background-color:green;
+	color:#00FFCC;
 }*/
 h1{
-text-align:center;
-/*display:inline-block;*/
+	text-align:center;
+	/*display:inline-block;*/
+	z-index:100;
 }
 /*----------------------------------Header--------------------------------*/
 #header{
-height:60px;
-width:100%;
-background-color:#555;
-border: 2px solid black;
-position:fixed;
-z-index:100;
+	height:60px;
+	width:100%;
+	background-color:#555;
+	border: 2px solid black;
+	position:fixed;
+	z-index:100;
 }
 #headerTitle{
-text-align:left;
-font-size:30px;
-/*border: 2px solid black;*/
-display: inline-block;
-margin:10px;
-color:white;
-font-weight:bold;
-text-decoration:none;
+	text-align:left;
+	font-size:30px;
+	/*border: 2px solid black;*/
+	display: inline-block;
+	margin:10px;
+	color:white;
+	font-weight:bold;
+	text-decoration:none;
 }
 #headerSearch{
-float:right;
-margin:18px;
--webkit-border-radius: 10px;
--moz-border-radius: 10px;
-border-radius: 10px;
-height:20px;
-padding-left:10px;
-background-color:#DDD;
-outline: none;
+	float:right;
+	margin-top:15px;
+	margin-right:15px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	height:25px;
+	padding-left:10px;
+	background-color:#DDD;
+	outline: none;
 }
-/*----------------------------------Index----------------------------------*/
+.header_no_overlap{
+height:60px;
+}
+/*----------------------------------Index.html----------------------------------*/
 #main_div{
-min-height:2000px;
-max-width:960px;
-background-color:#6685E0;
-border: 2px solid black;
-margin: 0 auto;
-margin-top:0px;
-position:relative;
-top:80px;
+	min-height:2000px;
+	max-width:960px;
+	background-color:#6685E0;
+	/*border: 2px solid black;*/
+	margin: 0 auto;
+	/*position:relative;*/
 }
 /*----------------------------------Main P1 Manga List ---*/
 #main_div_p1{
-/*height:400px;*/
-/*width:100%;*/
-/*border: 2px solid black;*/
-/*background-color:#888;*/
+	/*height:400px;*/
+	/*width:100%;*/
+	/*border: 2px solid black;*/
+	/*background-color:#888;*/
 }
 #main_div_p1_1{
-
-background-color:#888;
+	background-color:#888;
 }
 #main_div_p1_2{
-/*background-color:orange;*/
-/*min-height:300px;*/
-opacity:0.8;
-padding:10px;
-margin:auto;
-position:relative;
+	/*background-color:orange;*/
+	/*min-height:300px;*/
+	opacity:0.8;
+	padding:10px;
+	margin:auto;
+	position:relative;
 }
 #progress_bar{
-position:absolute;
-width:100px;
-height:100px;
-background-color:green;
-top:40%;
-left:20%;
-z-index:100;
+	position:absolute;
+	width:100px;
+	height:100px;
+	background-color:green;
+	top:40%;
+	left:20%;
+	z-index:100;
 }
 .m1{
-height:250px;
-width:140px;
-/*background-color:#339933;*/
-margin: 8px;
-display:inline-block;
--webkit-border-radius: 10px;
--moz-border-radius: 10px;
-border-radius: 10px;
+	height:250px;
+	width:140px;
+	/*background-color:#339933;*/
+	margin: 8px;
+	display:inline-block;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
 }
 .m1_img{
-height:160px;
-width:90%;
-background-color:#FFF;
-/*display:inline-block;*/
-border: 1px solid black;
-margin:5px auto 0;
--webkit-border-radius: 10px;
--moz-border-radius: 10px;
-border-radius: 10px;
+	height:160px;
+	width:90%;
+	background-color:#FFF;
+	/*display:inline-block;*/
+	border: 1px solid black;
+	margin:5px auto 0;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
 }
 .thumb{
-height:100%;
-width:100%;
--webkit-border-radius: 10px;
--moz-border-radius: 10px;
-border-radius: 10px;
+	height:100%;
+	width:100%;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
 }
 .m1_t{
-text-align:center;
-font-size:18px;
-font-weight:bold;
+	text-align:center;
+	font-size:18px;
+	font-weight:bold;
 }
 .m1_d{
-text-align:center;
-font-size:16px;
-margin:5px 0;
+	text-align:center;
+	font-size:16px;
+	margin:5px 0;
 }
 .m1_c{
-text-align:center;
-font-size:18px;
-font-weight:bold;
+	text-align:center;
+	font-size:18px;
+	font-weight:bold;
 }
 /*----------------------------------Main P2 Manga List ---*/
 /*--------------- Buttons*/
 #btn_collapse{
-float:right;
+	float:right;
 }
 #main_div_p2{
-background-color:#666;
-overflow:auto;
+	background-color:#666;
+	overflow:auto;
 }
 .main_div_p2_b1{
-float:left;
+	float:left;
 }
 #main_div_p2_b2{
-float:right;
+	float:right;
 }
 /*--------------- Main*/
 .m2{
-height:40px;
-width:500px;
-/*background-color:#339933;*/
-margin: 8px;
-/*display:inline-block;*/
--webkit-border-radius: 10px;
--moz-border-radius: 10px;
-border-radius: 10px;
-background-color:white;
-clear:both;
+	height:40px;
+	width:500px;
+	/*background-color:#339933;*/
+	margin: 8px;
+	/*display:inline-block;*/
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	background-color:white;
+	clear:both;
 }
 .m2_img{
-height:15px;
-width:15px;
-background-color:#FFF;
-/*display:inline-block;*/
-border: 1px solid black;
-margin:5px;
-/*-webkit-border-radius: 10px;
--moz-border-radius: 10px;
-border-radius: 10px;*/
-float:left;
+	height:15px;
+	width:15px;
+	background-color:#FFF;
+	/*display:inline-block;*/
+	border: 1px solid black;
+	margin:5px;
+	/*-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;*/
+	float:left;
 }
 .m2_t{
-font-size:18px;
-font-weight:bold;
+	font-size:18px;
+	font-weight:bold;
+}
+.m2_link{
+	text-decoration:none;
+	color:blue;
 }
 .m2_c{
 /*text-align:center;*/
@@ -195,9 +201,9 @@ font-weight:bold;
 /*float:left;*/
 }
 .m2_d{
-font-size:16px;
-margin-top:15px;
-display:inline-block;
+	font-size:16px;
+	margin-top:15px;
+	display:inline-block;
 }
 .m2_1{
 /*background-color:green;*/
@@ -286,4 +292,93 @@ body {
   content: '';
   display: block;
   clear: both;
+}
+/*
+------------------------------------------manga/somemanga.html
+*/
+#manga_body_div{
+	background-color:red;
+	max-width:960px;
+	margin:auto;
+}
+#manga_div{
+	padding:10px;
+	margin:auto;
+	background-color:green;
+	text-align:center;
+	
+}
+.manga_img{
+	max-width:100%;
+	max-height:100%;
+	cursor:pointer;
+}
+/*
+#main_div{
+min-height:2000px;
+max-width:960px;
+background-color:#6685E0;
+border: 2px solid black;
+margin: 0 auto;
+margin-top:0px;
+position:relative;
+top:80px;
+}*/
+#chapter_select{
+	float:left;
+	margin-left:40px;
+	height:25px;
+	margin-top:20px;
+}
+.chapter_ul{
+	list-style:none;
+	margin:10px 0;
+	float:left;
+}
+.chapter_ul li{
+	display:inline-block;
+	border:1px solid black;
+	background:white;
+	padding-top:10px;
+	transition: .25s ease-out;
+	outline:none;
+	cursor:pointer;
+	height:40px;
+}
+.chapter_ul li:first-child{
+	-webkit-border-top-left-radius: 10px;
+	-webkit-border-bottom-left-radius: 10px;
+	-moz-border-radius-topleft: 10px;
+	-moz-border-radius-bottomleft: 10px;
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+}
+.chapter_ul li:last-child{
+	-webkit-border-top-right-radius: 10px;
+	-webkit-border-bottom-right-radius: 10px;
+	-moz-border-radius-topright: 10px;
+	-moz-border-radius-bottomright: 10px;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+.chapter_ul li:hover{
+	background:#66CCFF;
+	transition:300;
+	transition: .25s ease-out;
+}
+.ch_selected{
+	background:#66CCFF!important;
+}
+#btn_left li{
+	margin-left:100px;
+}
+#btn_mid li{
+	width:40px;
+}
+#btn_right li{
+	
+}
+#btn_mid{
+margin-left:50px;
+margin-right:50px;
 }

@@ -4,12 +4,41 @@
 
 - Sort latest list
 - Remove Duplicate in top list
-
+- somemanga.html button toggle class
 */
 //------------------------------------------------------------------------ Chargement initial
 //----------------------------------------------------------------------------------------------------------------------------Active
 $(document).ready(function(){
 //-------------------------------------------On Start
+var chapterNb = [32,33,31,34]; //Nombre de page dans chaque chapitre.
+//------------------------------------------------------------Active------------Header Search Box Focus & Clear
+
+	var msgDefault = 'Rechercher';
+	$( "#headerSearch" ).focus(function() {
+		$( "#headerSearch" ).val('');
+		//$( "#headerSearch" ).css('border', '1px solid rgba(80, 200, 240, 1)');
+		
+	 // alert( "Handler for .focus() called." );
+	});
+
+	$( "#headerSearch" ).blur(function() {
+	  if($( "#headerSearch" ).val()==""){
+	//		$( "#headerSearch" ).css('border', '1px solid rgba(80, 200, 240, 1)');
+			
+		//box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+	  }
+	});
+	/*
+	$( "#headerSearch" ).blur(function() {
+		$( "#headerSearch" ).val() === '' ? $( "#headerSearch" ).val(msgDefault) : '';
+	});*/
+	
+	/*$( "#headerSearch" ).blur(function() {
+	  if($( "#headerSearch" ).val()==""){
+		$( "#headerSearch" ).val(msgDefault);
+	  }
+	});*/
+//--------------------------------------------------------------Active-------------------------------------index.html
 	generateTopList();
 	generateLatestMangaList();
 //------------------------------------------------------------------------Boutton Random
@@ -53,40 +82,21 @@ $(document).ready(function(){
 			generateLatestMangaList();
 			fakeLoading();
 		}
-	//	generateLatestMangaList();
-		
-		
+	//	generateLatestMangaList();	
 	});
-//------------------------------------------------------------------------Header Search Box Focus & Clear
-
-	var msgDefault = 'Rechercher';
-	$( "#headerSearch" ).focus(function() {
-		$( "#headerSearch" ).val('');
-		//$( "#headerSearch" ).css('border', '1px solid rgba(80, 200, 240, 1)');
-		
-	 // alert( "Handler for .focus() called." );
+//--------------------------------------------------------------Active-------------------------------------manga/somemanga.html
+/*$('<img />')
+    .attr('src', '../images/manga/shinozaki/1/003.jpg')
+    .appendTo('#manga_div')*/
+	$(".manga_img").click(function(){
+		getNextMangaPage();
+	//alert();
 	});
-
-	$( "#headerSearch" ).blur(function() {
-	  if($( "#headerSearch" ).val()==""){
-	//		$( "#headerSearch" ).css('border', '1px solid rgba(80, 200, 240, 1)');
-			
-		//box-shadow: 0 0 5px rgba(81, 203, 238, 1);
-	  }
-	});
-	/*
-	$( "#headerSearch" ).blur(function() {
-		$( "#headerSearch" ).val() === '' ? $( "#headerSearch" ).val(msgDefault) : '';
-	});*/
 	
-	/*$( "#headerSearch" ).blur(function() {
-	  if($( "#headerSearch" ).val()==""){
-		$( "#headerSearch" ).val(msgDefault);
-	  }
-	});*/
+	
 });
 //----------------------------------------------------------------------------------------------------------------------------------End Active
-
+//----------------------------------------------index.html
 //------------------------------------------------------------------------Creation d'une liste random
 function generateRandomMangaList(){
 	var div = '';
@@ -95,7 +105,8 @@ function generateRandomMangaList(){
 	for(var i = 0; i < 12; i++){
 		randomId = getRandomMangaId();
 		div = '<div id="m' + i + '" class="m1">' + 
-		'<div class="m1_img"><img class="thumb" src="' + getRandomThumbnail() + '"/></div>' +
+		'<div class="m1_img">' +
+		'<a href="manga/somemanga.html"><img class="thumb" src="' + getRandomThumbnail() + '"/></a></div>' +
 		'<p class="m1_t">' + getTrimMangaTitle(getMangaTitleById(randomId),11) + '</p>' +
 		'<p class="m1_d">' + getMangaYearById(randomId) + '</p>' +
 		'<p class="m1_c">Vol: ' + getMangaChapterById(randomId) +'</p>' +
@@ -118,7 +129,8 @@ function generateLatestMangaList(){
 	for(var i = 0; i < 12; i++){
 		randomId = getRandomMangaId();
 		div = '<div id="m' + i + '" class="m1">' +
-		'<div class="m1_img"><img class="thumb" src="' + getRandomThumbnail() + '"/></div>' +
+		'<div class="m1_img">' +
+		'<a href="manga/somemanga.html"><img class="thumb" src="' + getRandomThumbnail() + '"/></a></div>' +
 		'<p class="m1_t">' + getTrimMangaTitle(getMangaTitleById(randomId),11) + '</p>' +
 		'<p class="m1_d">' + getRandomReleaseTime() + '</p>' +
 		'<p class="m1_c">Vol: ' + getMangaChapterById(randomId) +'</p>' +
@@ -142,7 +154,7 @@ function generateTopList(){
 		div = '<div id="m2_' + i + '" class="m2">' + 
 		'<div class="m2_1">' +
 		'<div class="m2_img"></div>' +
-		' <p class="m2_t ">' + getTrimMangaTitle(getMangaTitleById(i),30) + '</p>' +
+		'<a href="manga/somemanga.html" class="m2_link"><p class="m2_t ">' + getTrimMangaTitle(getMangaTitleById(i),30) + '</p></a>' +
 		'<p class="m2_c">Vol: ' + 	getMangaChapterById(i) + '</p>' +
 		'</div>' +
 		'<div class="m2_2">' +
@@ -254,3 +266,19 @@ $( function() {
   
 });
 //------------------------------------------------------------------------Fin Isotope
+//----------------------------------------------manga/somemanga.html
+function getNextMangaPage(){
+	var z = 0;
+	//alert( $('.manga_img')[0].src );
+	var a = $('.manga_img')[0].src;
+	var b = a.indexOf('/1/');
+	alert(b);
+	var c = a.substr(b+3,3);
+	alert(c);
+	//$('.manga_img').attr('src', '../m/shinozaki/1/003.jpg');
+}
+
+
+
+
+
