@@ -115,7 +115,7 @@ $(document).ready(function(){
 			loadNextMangaPage();
 		});
 		
-		// Generates the navigation li
+// Generates the navigation li
 		liUpdate();
 	}
 //Add click listener to next chapters button
@@ -126,6 +126,10 @@ $(document).ready(function(){
 //Add click listener to previous chapters button
 	$( ".pre_chapter li" ).click(function() {
 	  loadPreviousChapter();
+	});
+//Add change listener on select
+	$( "#chapter_select" ).change(function() {
+	  selectChapter();
 	});
 });
 //----------------------------------------------------------------------------------------------------------------------------------End Active
@@ -293,6 +297,8 @@ function loadNextMangaPage(){
 	if((d == chapterNb[c][0]) && (c != chapterNb.length)){ 
 		c++;
 		d=0;
+		//Change select state
+		setSelectState(c);
 	}
 	//var type = chapterNb[c-1][1]; //get jpg or png
 	var ext = getMangaExtension(c);
@@ -315,12 +321,21 @@ function loadThisMangaPage(z){
 
 	liUpdate();
 }
+function selectChapter(){
+	var sIndex = $("#chapter_select").prop("selectedIndex");
+	var ext = getMangaExtension(sIndex+1);
+	$('.manga_img').attr('src', '../m/shinozaki/'+ (sIndex+1) +'/' + '001' + '.' + ext);
+	liUpdate();
+}
 function loadNextChapter(){
 	var chapter = getChapterCurNb();
  
 	if(chapter<chapterNb.length-1){
 		var ext = getMangaExtension(chapter+1);
 		$('.manga_img').attr('src', '../m/shinozaki/'+ (chapter+1) +'/' + '001' + '.' + ext);
+		$('#cur_chapter').html(chapter+1);
+		//Change select state
+		setSelectState(chapter+1);
 	}else{
 		alert('No next chapter');
 	}
@@ -331,9 +346,16 @@ function loadPreviousChapter(){
 	if(chapter>1){
 		var ext = getMangaExtension(chapter-1);
 		$('.manga_img').attr('src', '../m/shinozaki/'+ (chapter-1) +'/' + '001' + '.' + ext);
+		$('#cur_chapter').html(chapter-1);
+		//Change select state
+		setSelectState(chapter-1);
 	}else{
 		alert("Can't go lower");
 	}
+}
+function setSelectState(a){
+	var id = '#chapter_select option:nth-child(' + (a) +')';
+	$(id).prop('selected', true);
 }
 function getMangaExtension(chapter){
 	var ext = chapterNb[chapter][1];

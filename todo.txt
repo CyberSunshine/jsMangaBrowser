@@ -2,6 +2,7 @@
 Global
 -------------
 (1)	-Footer-----------------------------------------------------------------
+		-auto complete search
 -------------
 index.html
 -------------
@@ -15,19 +16,15 @@ index.html
 --------------------------
 somemanga.html
 --------------------------
-(2)	-somemanga.html button toggle class
-(1)	-Complete the volume 'select'----------------------
-		-Plug left and right arrow key
-(1)		-Complete the page 'navigation bar'
-		-H1 auto change on next volume
-		Disable highlight and cursor on ...
-
+		-Plug left and right arrow key for chapter select
+		-Disable highlight and cursor on ...
+		-Manga recommendation in footer
+		-Path home/manga1
 --------------------------
 somemanga.html
 --------------------------
 (1)	-inscription.html----------------------------------------
 			-Validation
-	
 --------------------------
 extra
 --------------------------
