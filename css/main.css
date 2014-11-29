@@ -370,15 +370,18 @@ top:80px;
 	background:#66CCFF!important;
 }
 #btn_left li{
-	margin-left:100px;
+	margin-left:50px;
 }
-#btn_mid li{
+.btn_mid li{
 	width:40px;
 }
 #btn_right li{
 	
 }
-#btn_mid{
+.btn_mid{
 margin-left:50px;
 margin-right:50px;
+}
+#l_btn_left{
+margin-left:150px;
 }

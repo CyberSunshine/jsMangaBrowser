@@ -17,11 +17,10 @@ somemanga.html
 --------------------------
 (2)	-somemanga.html button toggle class
 (1)	-Complete the volume 'select'----------------------
-		-plug left and right arrow key
-(2)		-Complete the page 'navigation bar'
-(1)			-getNextMangaPage()-------------------------------CyS
-					-png detection
-
+		-Plug left and right arrow key
+(1)		-Complete the page 'navigation bar'
+		-H1 auto change on next volume
+		Disable highlight and cursor on ...
 
 --------------------------
 somemanga.html
