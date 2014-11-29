@@ -110,7 +110,7 @@ $(document).ready(function(){
 
 	if (window.location.pathname.indexOf('/somemanga.html') >= 0){
 		
-		// Add click listener to images
+// Add click listener to images
 		$(".manga_img").click(function(){
 			loadNextMangaPage();
 		});
@@ -118,6 +118,10 @@ $(document).ready(function(){
 		// Generates the navigation li
 		liUpdate();
 	}
+//Add click listener to chapters button
+	$( ".next_chapter li" ).click(function() {
+	  loadNextChapter();
+	});
 	
 });
 //----------------------------------------------------------------------------------------------------------------------------------End Active
@@ -306,6 +310,16 @@ function loadThisMangaPage(z){
 	}
 
 	liUpdate();
+}
+function loadNextChapter(){
+	var chapter = getChapterCurNb();
+ 
+	if(chapter<chapterNb.length-1){
+		var ext = getMangaExtension(chapter+1);
+		$('.manga_img').attr('src', '../m/shinozaki/'+ (chapter+1) +'/' + '001' + '.' + ext);
+	}else{
+		alert('No next chapter');
+	}
 }
 function getMangaExtension(chapter){
 	var ext = chapterNb[chapter][1];
