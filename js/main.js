@@ -1,7 +1,7 @@
 'use strict'; // Remonte d'avantage les erreurs de code
 
  //Nombre de page dans chaque chapitre.
-var chapterNb = [[32,'jpg'],[33,'jpg'],[31,'png'],[34,'png']];
+var chapterNb = [[0,'0'],[32,'jpg'],[33,'jpg'],[31,'png'],[34,'png']];
 //------------------------------------------------------------------------ Chargement initial
 //----------------------------------------------------------------------------------------------------------------------------Active
 $(document).ready(function(){
@@ -282,7 +282,7 @@ function loadNextMangaPage(){
 	var d = getPageCurNb();
 	
 	//Change chapter when the end is reach
-	if((d == chapterNb[c-1][0]) && (c != chapterNb.length)){ 
+	if((d == chapterNb[c][0]) && (c != chapterNb.length)){ 
 		c++;
 		d=0;
 	}
@@ -308,7 +308,7 @@ function loadThisMangaPage(z){
 	liUpdate();
 }
 function getMangaExtension(chapter){
-	var ext = chapterNb[chapter-1][1];
+	var ext = chapterNb[chapter][1];
 	
 	return ext;
 }
@@ -343,20 +343,20 @@ function liUpdate(){
 	var liGroup = '<!--';
 	var curPage = getPageCurNb();
 	var chapter = getChapterCurNb();
-
+	
 	$( ".btn_mid" ).empty();// Step 1: remove all li
 	
-	if( curPage < 5){
+	if( curPage < 5){ //Display 1-5 & last 2
 		for(var i = 1;i<=5;i++) liGroup += '--><li>' + i + '</li><!--';
 		liGroup +=  '--><li>' + '...' + '</li><!--';
 		liGroup +=  '--><li>' + (chapterNb[chapter][0]-1) + '</li><!--';
 		liGroup +=  '--><li>' + chapterNb[chapter][0] + '</li><!--';
-	}else if(curPage > chapterNb[chapter][0]-5){
+	}else if(curPage > chapterNb[chapter][0]-5){ // display first 2 and last 5
 		liGroup +=  '--><li>' + 1 + '</li><!--';
 		liGroup +=  '--><li>' + 2 + '</li><!--';
 		liGroup +=  '--><li>' + '...' + '</li><!--';
-		for(var i = (chapterNb[chapter][0]-5);i<(chapterNb[chapter][0]);i++) liGroup += '--><li>' + i + '</li><!--';
-	}else{
+		for(var i = (chapterNb[chapter][0]-5);i<=(chapterNb[chapter][0]);i++) liGroup += '--><li>' + i + '</li><!--';
+	}else{ // Display first 2 & last 2 & 5 pages centered on current page
 		liGroup +=  '--><li>' + 1 + '</li><!--';
 		liGroup +=  '--><li>' + 2 + '</li><!--';
 		liGroup +=  '--><li>' + '...' + '</li><!--';
