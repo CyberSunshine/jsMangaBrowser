@@ -10,16 +10,16 @@ $(document).ready(function(){
 //------------------------------------------------------------OnStart------------Header Search Box Focus & Clear
 
 	var msgDefault = 'Rechercher';
-	
+	//Clear search text on focus
 	$( "#headerSearch" ).focus(function() {
 		$( "#headerSearch" ).val('');
 	});
-
-	$('#btn_register').click(function(){
-	   window.location.href='register.html';
-	   //alert();
+	//Toggle show/hide login box with
+	$('#btn_login_register').click(function(){
+		$('#login_form').css('display')=='none' ? $('#login_form').css('display','inline-block') : $('#login_form').css('display','none');
 	})
-	
+	//Form login verification
+	$('#login_form').submit(login);
 //--------------------------------------------------------------OnStart-------------------------------------index.html
 	if (window.location.pathname.indexOf('/index.html') >= 0){
 		generateTopList();
@@ -118,6 +118,29 @@ $(document).ready(function(){
 	}
 });	//--On start End
 //----------------------------------------------------------------------------------------------------------------------------------End On start
+//------------------------------------------------------Header
+function login(){
+	if($('#login_form input[name="user"]').val()!=''){
+		$('#btn_login_register').css('display','none');
+		$('#div_login_register').append('<div id="div_login_temp"><p>Welcome, ' + $('#login_form input[name="user"]').val() + '</p></div>');
+		$('#div_login_temp').append('<input type="button" value="Logout" />');
+		$('#login_form').css('display','none');
+		
+		//Logout button listener
+		$("#div_login_temp input").click(function(){
+			$('#div_login_temp').remove();
+			$('#btn_login_register').css('display','inline-block');
+		});
+			
+		return false; //False to avoid page from reloading
+	}else{
+		//empty username
+		return false;
+	}
+	
+
+	
+}
 //----------------------------------------------index.html
 //------------------------------------------------------------------------Creation d'une liste random
 function generateRandomMangaList(){

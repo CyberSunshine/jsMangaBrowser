@@ -52,6 +52,15 @@ h1{
 	font-weight:bold;
 	text-decoration:none;
 }
+#div_login_register{
+	float:right;
+}
+#div_login_register p{
+	margin:10px 10px 0;
+}
+#div_login_register input{
+	margin:3px 0 0 20px;
+}
 #headerSearch{
 	float:right;
 	margin-top:15px;
@@ -64,8 +73,36 @@ h1{
 	background-color:#DDD;
 	outline: none;
 }
-#btn_register{
-	float:right;
+#btn_login_register{
+/*	float:right;*/
+}
+#hidden_login{
+	position:absolute;
+	top:60px;
+	right:20px;
+}
+#hidden_login{
+	z-index:200;
+}
+#login_form{
+	background-color:white;
+	padding:5px;
+	border:2px solid blue;
+	display:none;
+}
+#login_form label{
+	display:inline-block;
+	width:100px;
+}
+#login_form input[type='text'],#login_form input[type='password']{
+	display:inline-block;
+	width:100px;
+	margin-bottom:3px;
+}
+#login_form input[type='submit'] {}
+#login_form a {
+	margin-right:70px;
+	display:inline-block;
 }
 .header_no_overlap{
 	height:60px;
@@ -394,16 +431,16 @@ top:80px;
 #login_div{
 	background:white;
 }
-#register-form{
+#register_form{
 	width:500px;
 	margin:auto;
 }
-#register-form label{
+#register_form label{
 	width:100px;
 	display:inline-block;
 	margin:10px;
 }
-#register-form span{
+#register_form span{
 	color:red;
 	margin-left:5px;
 }

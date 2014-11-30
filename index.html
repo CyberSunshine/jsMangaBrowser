@@ -9,15 +9,23 @@
 		<script src="js/main.js"></script>
 		<link rel="stylesheet" href="css/main.css" />
 		<script src="js/mangalist.js"></script>
+		<link href="images/favicon.ico" rel="icon" type="image/x-icon" />
 	</head>
 	<body>
 <!-- ================================== Header Debut ======================== -->
 		<div id='header'>
 			<a id="headerTitle" href="index.html">Manga Supreme</a>
-			<button id='btn_register' class='button account'>Login/Register</button>
+			<div id='div_login_register'><button id='btn_login_register' class='button account'>Login/Register</button></div>
 			<input id='headerSearch' type='text' placeholder='Recherche' />
 		</div>
-		<div id='hidden_login'></div>
+		<div id='hidden_login'>
+			<form id="login_form" method="post" accept-charset="utf-8">
+				<p><label for="id_user">Username:</label> <input id="id_user" type="text" placeholder="Username" name="user" maxlength="20" /><span></span></p>
+				<p><label for="id_password">Password:</label> <input type="password" placeholder="Password" name="password" id="id_password" /><span></span></p>
+				<p><a href='register.html'>Register</a><input type="submit" value="Login" /></p>
+				
+			</form>
+		</div>
 		<div class="header_no_overlap"></div>
 <!-- =================================== Header Fin ======================== -->
 		
