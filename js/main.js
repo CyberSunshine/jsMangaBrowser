@@ -10,21 +10,25 @@ $(document).ready(function(){
 //------------------------------------------------------------OnStart------------Header Search Box Focus & Clear
 
 	var msgDefault = 'Rechercher';
+	
 	//Clear search text on focus
 	$( "#headerSearch" ).focus(function() {
 		$( "#headerSearch" ).val('');
 	});
+	
 	//Toggle show/hide login box with
 	$('#btn_login_register').click(function(){
 		$('#login_form').css('display')=='none' ? $('#login_form').css('display','inline-block') : $('#login_form').css('display','none');
 	})
+	
 	//Form login verification
 	$('#login_form').submit(login);
 //--------------------------------------------------------------OnStart-------------------------------------index.html
 	if (window.location.pathname.indexOf('/index.html') >= 0){
 		generateTopList();
 		generateLatestMangaList();
-	//------------------------------------------------------------------------Boutton Random
+		
+		//Boutton Random
 		$("#btn_random").click(function(){
 			
 			emptyM1();
@@ -32,26 +36,19 @@ $(document).ready(function(){
 			$("#main_div_p1_2").show("slow");
 			fakeLoading();
 		});
-	//------------------------------------------------------------------------Boutton Latest clone
-		/*$("#btn_latest").click(function(){
-			
-			emptyM1();
-			generateLatestMangaList();
-			$("#main_div_p1_2").show("slow");
-			fakeLoading();
-		});*/
-	//------------------------------------------------------------------------Boutton Latest
+
+		//Boutton Latest
 		$("#btn_latest").click(function(){
 			generateLatestMangaList();
 			fakeLoading();
 		});
-	//------------------------------------------------------------------------Boutton A-Z
-
+		
+		//Boutton A-Z
 		$("#btn_az").click(function(){
 			$container.isotope({ sortBy: 'name' })
 		});
-	//------------------------------------------------------------------------Boutton Collapse
-
+		
+		//Boutton Collapse
 		$("#btn_collapse").click(function(){
 			
 			var height = parseInt($("#main_div_p1_2").height());
@@ -62,12 +59,11 @@ $(document).ready(function(){
 				generateLatestMangaList();
 				fakeLoading();
 			}
-		//	generateLatestMangaList();	
 		});
 		
 	//------------------------------------------------------------------------Isotope
-	// init Isotope
-	  var $container = $('#main_div_p2_2').isotope({
+		// init Isotope
+		var $container = $('#main_div_p2_2').isotope({
 		itemSelector: '.m2',
 		layoutMode: 'fitRows',
 		getSortData: {
@@ -76,49 +72,57 @@ $(document).ready(function(){
 	  });
 
 	  // bind sort button click
-	  $('#sorts').on( 'click', 'button', function() {
-		var sortValue = $(this).attr('data-sort-value');
-		$container.isotope({ sortBy: sortValue });
-	  });
+		$('#sorts').on( 'click', 'button', function() {
+			var sortValue = $(this).attr('data-sort-value');
+			$container.isotope({ sortBy: sortValue });
+		});
 
 	  // change is-checked class on buttons
-	  $('.button-group').each( function( i, buttonGroup ) {
-		var $buttonGroup = $( buttonGroup );
-		$buttonGroup.on( 'click', 'button', function() {
-		  $buttonGroup.find('.is-checked').removeClass('is-checked');
-		  $( this ).addClass('is-checked');
+		$('.button-group').each( function( i, buttonGroup ) {
+			var $buttonGroup = $( buttonGroup );
+			$buttonGroup.on( 'click', 'button', function() {
+			$buttonGroup.find('.is-checked').removeClass('is-checked');
+			$( this ).addClass('is-checked');
+			});
 		});
-	  });
 	}
 //----------------------------------------------Fin Isotope
 //--------------------------------------------------------------OnStart-------------------------------------manga/somemanga.html
 
 	if (window.location.pathname.indexOf('/somemanga.html') >= 0){
 		
-// Add click listener to images
-		$(".manga_img").click(loadNextMangaPage);		
-// Generates the navigation li
+		// Add click listener to images
+		$(".manga_img").click(loadNextMangaPage);	
+		
+		// Generates the navigation li
 		liUpdate();
+	
+	
+		//Add click listener to next chapters button
+		$( ".next_chapter li" ).click(loadNextChapter);
+		
+		//Add click listener to previous chapters button
+		$( ".pre_chapter li" ).click(loadPreviousChapter);
+		
+		//Add change listener on select
+		$( "#chapter_select" ).change(selectChapter);
 	}
-//Add click listener to next chapters button
-	$( ".next_chapter li" ).click(loadNextChapter);
-//Add click listener to previous chapters button
-	$( ".pre_chapter li" ).click(loadPreviousChapter);
-//Add change listener on select
-	$( "#chapter_select" ).change(selectChapter);
-
 //--------------------------------------------------------------OnStart--------------------------------------register.html
 	if (window.location.pathname.indexOf('register.html') >= 0){
-//Form submit verification
-		$('#register-form').submit(register);
-//Password validation
-		$( "#register-form input[name=password1]" ).keyup(validatePassword);
-//Password 2 validation
-		$( "#register-form input[name=password2]" ).keyup(comparePassword);
+		
+		//Form submit verification
+		$("form[name='register_form']").submit(register);
+		
+		//Password validation $( "#register-form input[name=password1]" ).keyup(validatePassword);
+		//$( "#id_password1" ).keyup(validatePassword);
+		$("form[name='register_form'] input[name='password1']").keyup(validatePassword);
+		//Password 2 validation
+		$( "form[name='register_form'] input[name=password2]" ).keyup(comparePassword);
 	}
 });	//--On start End
 //----------------------------------------------------------------------------------------------------------------------------------End On start
 //------------------------------------------------------Header
+//Login button
 function login(){
 	if($('#login_form input[name="user"]').val()!=''){
 		$('#btn_login_register').css('display','none');
@@ -161,7 +165,6 @@ function generateRandomMangaList(){
 		id = '#m' + i;
 		$( id ).css( "background", getRandomColor() );
 	}
-	//document.getElementById('main_div_p1_2').innerHTML = div1;
 }
 //------------------------------------------------------------------------Creation de latest list
 function generateLatestMangaList(){
@@ -187,8 +190,6 @@ function generateLatestMangaList(){
 	}
 	
 	$("#main_div_p1_2").show("slow");
-	
-	//document.getElementById('main_div_p1_2').innerHTML = div1;
 }
 //------------------------------------------------------------------------Creation d'une liste top
 function generateTopList(){
@@ -208,40 +209,41 @@ function generateTopList(){
 		'</div>';
 		
 		$( "#main_div_p2_2" ).append( div );
-	//id = '#m' + i;
-	//$( id ).css( "background", getRandomColor() );
-	
-	//$( id ).css( "background", 'white' );
 	}
-	//document.getElementById('main_div_p1_2').innerHTML = div1;
 }
-//------------------------------------------------------------------------getRandomMangaId
+
+//getRandomMangaId
 function getRandomMangaId(){
 	var id = 0;
 	id = Math.floor(Math.random() * mangaList.length);
 	return id;
 }
-//------------------------------------------------------------------------getMangaTitleById
+
+//getMangaTitleById
 function getMangaTitleById(id){
 	var title = mangaList[id][0];
 	return title;
 }
-//------------------------------------------------------------------------getTrimMangaTitle
+
+//getTrimMangaTitle
 function getTrimMangaTitle(mTitle, t){
 	var trimTitle = mTitle.length > t ? mTitle.substring(0,t) + '...' : mTitle;
 	return trimTitle;
 }
-//------------------------------------------------------------------------getMangaChapterById
+
+//getMangaChapterById
 function getMangaChapterById(id){
 	var mChapter = mangaList[id][3];
 	return mChapter;
 }
-//------------------------------------------------------------------------getMangaYearById
+
+//getMangaYearById
 function getMangaYearById(id){
 	var mYear = mangaList[id][4];
 	return mYear;
 }
-//------------------------------------------------------------------------getRandomReleaseTime
+
+//getRandomReleaseTime
 function getRandomReleaseTime(){
 	var mTime = '';
 	var rnd = Math.floor(Math.random()*5 + 1);
@@ -253,16 +255,18 @@ function getRandomReleaseTime(){
 	}
 	return mTime;
 }
-//------------------------------------------------------------------------getRandomReleaseTime
+
+//getRandomReleaseTime
 function getRandomThumbnail(){
 	var rnd = Math.floor(Math.random()*70 + 1);
 	return 'images/small/' + rnd + '.jpg'
 }
-//------------------------------------------------------------------------Vider la div p1_2
+
+//Vider la div p1_2
 function emptyM1(){
 	$("#main_div_p1_2").empty();
 }
-//------------------------------------------------------------------------Fake Loading
+//Fake Loading bar
 function fakeLoading(){
 
 	$( "#main_div_p1_2" ).append( '<div id="progress_bar"></div>' );
@@ -274,7 +278,7 @@ function fakeLoading(){
   });
 
 }
-//------------------------------------------------------------------------Creer une couleur hexadecimal au hazard
+//Creer une couleur hexadecimal au hazard
 function getRandomColor() {
     var lettres = '0123456789ABCDEF'.split('');
     var color = '#';
@@ -284,17 +288,6 @@ function getRandomColor() {
     return color;
 }
 
-/*
-	var z = 0;
-	//alert( $('.manga_img')[0].src );
-	var a = $('.manga_img')[0].src;
-	var b = a.indexOf('/1/');
-	alert(b);
-	var c = parseInt(a.substr(b+3,3));
-	alert(c);
-	
-	
-*/
 //-----------------------------------------------------------------------manga/somemanga.html
 function loadNextMangaPage(){
 	
@@ -446,11 +439,7 @@ function liUpdate(){
 			var allLi = '.btn_mid li:nth-child(' + i + ')'; //This one is the class
 			$( allLi ).addClass( 'ch_selected' );
 		}
-	}
-	
-	/*var idNavBar = '.btn_mid li:nth-child('+ curPage + ')';
-	$( idNavBar ).toggleClass( 'ch_selected' );*/
-	
+	}	
 }
 //-----------------------------------------------------------------------manga/register.html
 function register(){
@@ -501,13 +490,16 @@ function validateEmail(email) {
 		return true;
 	}
 } 
-//3-16 letters
+
+//3-16 letters validation
 function validateUsername(user){
 	var re = /^[a-z0-9_-]{3,16}$/
 	return re.test(user);
 }
-//6-18 letters
-function validatePassword(user){	
+
+//6-18 letters validation
+function validatePassword(){	
+	//alert();
 	var password = $('#id_password1').val();
 	var re = /^[a-z0-9_-]{6,18}$/;
 	
