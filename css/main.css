@@ -64,12 +64,15 @@ h1{
 	background-color:#DDD;
 	outline: none;
 }
+#btn_register{
+	float:right;
+}
 .header_no_overlap{
-height:60px;
+	height:60px;
 }
 /*----------------------------------Index.html----------------------------------*/
 #main_div{
-	min-height:2000px;
+	
 	max-width:960px;
 	background-color:#6685E0;
 	/*border: 2px solid black;*/
@@ -379,9 +382,30 @@ top:80px;
 	
 }
 .btn_mid{
-margin-left:50px;
-margin-right:50px;
+	margin-left:50px;
+	margin-right:50px;
 }
 #l_btn_left{
-margin-left:150px;
+	margin-left:150px;
 }
+/*
+------------------------------------------manga/login.html
+*/
+#login_div{
+	background:white;
+}
+#register-form{
+	width:500px;
+	margin:auto;
+}
+#register-form label{
+	width:100px;
+	display:inline-block;
+	margin:10px;
+}
+#register-form span{
+	color:red;
+	margin-left:5px;
+}
+
+

@@ -7,34 +7,20 @@ var chapterNb = [[0,'0'],[32,'jpg'],[33,'jpg'],[31,'png'],[34,'png']];
 $(document).ready(function(){
 //-------------------------------------------On Start
 	
-//------------------------------------------------------------Active------------Header Search Box Focus & Clear
+//------------------------------------------------------------OnStart------------Header Search Box Focus & Clear
 
 	var msgDefault = 'Rechercher';
+	
 	$( "#headerSearch" ).focus(function() {
 		$( "#headerSearch" ).val('');
-		//$( "#headerSearch" ).css('border', '1px solid rgba(80, 200, 240, 1)');
-		
-	 // alert( "Handler for .focus() called." );
 	});
 
-	$( "#headerSearch" ).blur(function() {
-	  if($( "#headerSearch" ).val()==""){
-	//		$( "#headerSearch" ).css('border', '1px solid rgba(80, 200, 240, 1)');
-			
-		//box-shadow: 0 0 5px rgba(81, 203, 238, 1);
-	  }
-	});
-	/*
-	$( "#headerSearch" ).blur(function() {
-		$( "#headerSearch" ).val() === '' ? $( "#headerSearch" ).val(msgDefault) : '';
-	});*/
+	$('#btn_register').click(function(){
+	   window.location.href='register.html';
+	   //alert();
+	})
 	
-	/*$( "#headerSearch" ).blur(function() {
-	  if($( "#headerSearch" ).val()==""){
-		$( "#headerSearch" ).val(msgDefault);
-	  }
-	});*/
-//--------------------------------------------------------------Active-------------------------------------index.html
+//--------------------------------------------------------------OnStart-------------------------------------index.html
 	if (window.location.pathname.indexOf('/index.html') >= 0){
 		generateTopList();
 		generateLatestMangaList();
@@ -63,7 +49,6 @@ $(document).ready(function(){
 
 		$("#btn_az").click(function(){
 			$container.isotope({ sortBy: 'name' })
-			//alert();
 		});
 	//------------------------------------------------------------------------Boutton Collapse
 
@@ -106,33 +91,33 @@ $(document).ready(function(){
 	  });
 	}
 //----------------------------------------------Fin Isotope
-//--------------------------------------------------------------Active-------------------------------------manga/somemanga.html
+//--------------------------------------------------------------OnStart-------------------------------------manga/somemanga.html
 
 	if (window.location.pathname.indexOf('/somemanga.html') >= 0){
 		
 // Add click listener to images
-		$(".manga_img").click(function(){
-			loadNextMangaPage();
-		});
-		
+		$(".manga_img").click(loadNextMangaPage);		
 // Generates the navigation li
 		liUpdate();
 	}
 //Add click listener to next chapters button
-	$( ".next_chapter li" ).click(function() {
-	  loadNextChapter();
-	});
-
+	$( ".next_chapter li" ).click(loadNextChapter);
 //Add click listener to previous chapters button
-	$( ".pre_chapter li" ).click(function() {
-	  loadPreviousChapter();
-	});
+	$( ".pre_chapter li" ).click(loadPreviousChapter);
 //Add change listener on select
-	$( "#chapter_select" ).change(function() {
-	  selectChapter();
-	});
-});
-//----------------------------------------------------------------------------------------------------------------------------------End Active
+	$( "#chapter_select" ).change(selectChapter);
+
+//--------------------------------------------------------------OnStart--------------------------------------register.html
+	if (window.location.pathname.indexOf('register.html') >= 0){
+//Form submit verification
+		$('#register-form').submit(register);
+//Password validation
+		$( "#register-form input[name=password1]" ).keyup(validatePassword);
+//Password 2 validation
+		$( "#register-form input[name=password2]" ).keyup(comparePassword);
+	}
+});	//--On start End
+//----------------------------------------------------------------------------------------------------------------------------------End On start
 //----------------------------------------------index.html
 //------------------------------------------------------------------------Creation d'une liste random
 function generateRandomMangaList(){
@@ -299,6 +284,7 @@ function loadNextMangaPage(){
 		d=0;
 		//Change select state
 		setSelectState(c);
+		$('#cur_chapter').html(c);
 	}
 	//var type = chapterNb[c-1][1]; //get jpg or png
 	var ext = getMangaExtension(c);
@@ -443,8 +429,75 @@ function liUpdate(){
 	$( idNavBar ).toggleClass( 'ch_selected' );*/
 	
 }
+//-----------------------------------------------------------------------manga/register.html
+function register(){
+	
+	var username = $('#id_username').val();
+	
+	if (!validateEmail()){
+		$('#id_email ~ span').html('Invalid email');
 
-
+		return false;
+	}else if(!validateUsername(username)){
+		var name = $('#id_email').val();
+		if (!validateUsername(name)){
+			$('#id_username ~ span').html('Invalid (3-16 characters)');
+		}
+		return false;
+	}else if(!validatePassword()){
+		return false;
+	}else if(!comparePassword()){
+		return false;
+	}else{
+		return true;
+	}
+}
+function comparePassword(){
+	var pwd1 = $('#id_password1').val();
+	var pwd2 = $('#id_password2').val();
+	
+	if(pwd1!=pwd2){
+		$('#id_password2 ~ span').css('color','red');
+		$('#id_password2 ~ span').html('Passwords not matching');
+		return false;
+	}else{
+		$('#id_password2 ~ span').css('color','green');
+		$('#id_password2 ~ span').html('Ok');	
+		return true;
+	}
+}
+function validateEmail(email) { 
+	var email = $('#id_email').val();
+	var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+	
+	if (!re.test(email)){
+		$('#id_email ~ span').html('Invalid email');
+		return false;
+	}else{
+		$('#id_email ~ span').html('');
+		return true;
+	}
+} 
+//3-16 letters
+function validateUsername(user){
+	var re = /^[a-z0-9_-]{3,16}$/
+	return re.test(user);
+}
+//6-18 letters
+function validatePassword(user){	
+	var password = $('#id_password1').val();
+	var re = /^[a-z0-9_-]{6,18}$/;
+	
+	if (!re.test(password)){
+		$('#id_password1 ~ span').css('color','red');
+		$('#id_password1 ~ span').html('Invalid (6-18 characters)');
+		return false;
+	}else{
+		$('#id_password1 ~ span').css('color','green');
+		$('#id_password1 ~ span').html('Ok');
+		return true;
+	}
+}
 
 
 
