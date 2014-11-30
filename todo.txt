@@ -2,7 +2,7 @@
 Global
 -------------
 1	-Footer-----------------------------------------------------------------
-		-auto complete search
+	-auto complete search
 -------------
 index.html
 -------------
@@ -16,17 +16,16 @@ index.html
 --------------------------
 somemanga.html
 --------------------------
-3		-Plug left and right arrow key for chapter select
 3		-Disable highlight and cursor on ...
 		-Manga recommendation in footer
 2		-Path home/manga1
+		-zoom
 --------------------------
 register.html
 --------------------------
 2		-css improvment
-1		-login drop down
 --------------------------
 extra
 --------------------------
 	-fix getNextMangaPage() to work on additional manga automaticly
-	-responsive
+4	-responsive

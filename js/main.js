@@ -106,6 +106,16 @@ $(document).ready(function(){
 		
 		//Add change listener on select
 		$( "#chapter_select" ).change(selectChapter);
+		
+		//Keyboard left and right arrow listener
+		$("body").keydown(function(e) {
+		  if(e.keyCode == 37) { // left
+			loadPreviousMangaPage();
+		  }
+		  else if(e.keyCode == 39) { // right
+			loadNextMangaPage();
+		  }
+		});
 	}
 //--------------------------------------------------------------OnStart--------------------------------------register.html
 	if (window.location.pathname.indexOf('register.html') >= 0){
@@ -291,26 +301,57 @@ function getRandomColor() {
 //-----------------------------------------------------------------------manga/somemanga.html
 function loadNextMangaPage(){
 	
-	var c = getChapterCurNb();
-	var d = getPageCurNb();
-	
+	var curChapter = getChapterCurNb();
+	var curPage = getPageCurNb();
+
 	//Change chapter when the end is reach
-	if((d == chapterNb[c][0]) && (c != chapterNb.length)){ 
-		c++;
-		d=0;
+	if((curPage == chapterNb[curChapter][0]) && (curChapter != chapterNb.length-1)){ 
+
+		curChapter++;
+		curPage=0;
 		//Change select state
-		setSelectState(c);
-		$('#cur_chapter').html(c);
+		setSelectState(curChapter);
+		$('#cur_chapter').html(curChapter);
+
+	}else if (curChapter == chapterNb.length-1 && curPage== chapterNb[curChapter][0]){
+		alert('No next chapter');
+		return 0;
 	}
 	//var type = chapterNb[c-1][1]; //get jpg or png
-	var ext = getMangaExtension(c);
+	var ext = getMangaExtension(curChapter);
 	// Add padding to the page number -1 > 001
-	d++;
-	var page = getPadding(d);
-	$('.manga_img').attr('src', '../m/shinozaki/'+ c +'/' + page + '.' + ext);
+	curPage++;
+	var page = getPadding(curPage);
+	$('.manga_img').attr('src', '../m/shinozaki/'+ curChapter +'/' + page + '.' + ext);
 	
 	liUpdate();
 }
+function loadPreviousMangaPage(){
+	
+	var curChapter = getChapterCurNb();
+	var curPage = getPageCurNb();
+	
+	//Change to previous chapter
+	if((curPage == 1) && (curChapter > 1) && (chapterNb.length > 1)){ 
+		curChapter--;
+		curPage=chapterNb[curChapter][0] +1;
+		//Change select state
+		setSelectState(curChapter);
+		$('#cur_chapter').html(curChapter);
+	}else if (curChapter==1 & curPage==1){
+		alert('No previous page');
+		return 0;
+	}
+	//var type = chapterNb[c-1][1]; //get jpg or png
+	var ext = getMangaExtension(curChapter);
+	// Add padding to the page number -1 > 001
+	curPage--;
+	var page = getPadding(curPage);
+	$('.manga_img').attr('src', '../m/shinozaki/'+ curChapter +'/' + page + '.' + ext);
+	
+	liUpdate();
+}
+
 function loadThisMangaPage(z){
 
 	var c = getChapterCurNb();
@@ -327,6 +368,10 @@ function selectChapter(){
 	var sIndex = $("#chapter_select").prop("selectedIndex");
 	var ext = getMangaExtension(sIndex+1);
 	$('.manga_img').attr('src', '../m/shinozaki/'+ (sIndex+1) +'/' + '001' + '.' + ext);
+	
+	//h1 update
+	$('#cur_chapter').html(sIndex+1);
+	
 	liUpdate();
 }
 function loadNextChapter(){
@@ -356,6 +401,7 @@ function loadPreviousChapter(){
 	}
 }
 function setSelectState(a){
+	
 	var id = '#chapter_select option:nth-child(' + (a) +')';
 	$(id).prop('selected', true);
 }
@@ -412,8 +458,6 @@ function liUpdate(){
 		liGroup +=  '--><li>' + 1 + '</li><!--';
 		liGroup +=  '--><li>' + 2 + '</li><!--';
 		liGroup +=  '--><li>' + '...' + '</li><!--';
-		console.log(chapterNb[chapter][0]-2);
-		console.log(chapterNb[chapter][0]+2);
 		for(var i = (curPage-2);i<=(curPage+2);i++) liGroup += '--><li>' + i + '</li><!--';
 		liGroup +=  '--><li>' + '...' + '</li><!--';
 		liGroup +=  '--><li>' + (chapterNb[chapter][0]-1) + '</li><!--';
