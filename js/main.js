@@ -373,6 +373,9 @@ function selectChapter(){
 	$('#cur_chapter').html(sIndex+1);
 	
 	liUpdate();
+	
+	//Remove focus
+	$('#chapter_select').blur();
 }
 function loadNextChapter(){
 	var chapter = getChapterCurNb();
