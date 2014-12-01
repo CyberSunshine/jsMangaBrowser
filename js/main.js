@@ -92,7 +92,7 @@ $(document).ready(function(){
 	if (window.location.pathname.indexOf('/somemanga.html') >= 0){
 		
 		// Add click listener to images
-		$(".manga_img").click(loadNextMangaPage);	
+		$("#manga_img").click(loadNextMangaPage);	
 		
 		// Generates the navigation li
 		liUpdate();
@@ -116,6 +116,9 @@ $(document).ready(function(){
 			loadNextMangaPage();
 		  }
 		});
+		
+		//Zoom Button
+		$( "#zoom_btn" ).click(toggleImgZoom);
 	}
 //--------------------------------------------------------------OnStart--------------------------------------register.html
 	if (window.location.pathname.indexOf('register.html') >= 0){
@@ -304,6 +307,16 @@ function loadNextMangaPage(){
 	var curChapter = getChapterCurNb();
 	var curPage = getPageCurNb();
 
+	//Shrink image if x_large
+	if ( $("#div_manga_img").hasClass('x_large') ){ 
+		
+		//Necessary for smooth transition
+		$( "#manga_img" ).hide( 0, function() {
+			toggleImgZoom();
+		});
+		$( "#manga_img" ).show(1);
+	}
+	
 	//Change chapter when the end is reach
 	if((curPage == chapterNb[curChapter][0]) && (curChapter != chapterNb.length-1)){ 
 
@@ -322,7 +335,9 @@ function loadNextMangaPage(){
 	// Add padding to the page number -1 > 001
 	curPage++;
 	var page = getPadding(curPage);
-	$('.manga_img').attr('src', '../m/shinozaki/'+ curChapter +'/' + page + '.' + ext);
+	$('#manga_img').attr('src', '../m/shinozaki/'+ curChapter +'/' + page + '.' + ext);
+	
+	
 	
 	liUpdate();
 }
@@ -347,7 +362,7 @@ function loadPreviousMangaPage(){
 	// Add padding to the page number -1 > 001
 	curPage--;
 	var page = getPadding(curPage);
-	$('.manga_img').attr('src', '../m/shinozaki/'+ curChapter +'/' + page + '.' + ext);
+	$('#manga_img').attr('src', '../m/shinozaki/'+ curChapter +'/' + page + '.' + ext);
 	
 	liUpdate();
 }
@@ -359,7 +374,7 @@ function loadThisMangaPage(z){
 	var ext = getMangaExtension(c);
 
 	if(page != '...'){
-		$('.manga_img').attr('src', '../m/shinozaki/'+ c +'/' + page + '.' + ext);
+		$('#manga_img').attr('src', '../m/shinozaki/'+ c +'/' + page + '.' + ext);
 	}
 
 	liUpdate();
@@ -367,7 +382,7 @@ function loadThisMangaPage(z){
 function selectChapter(){
 	var sIndex = $("#chapter_select").prop("selectedIndex");
 	var ext = getMangaExtension(sIndex+1);
-	$('.manga_img').attr('src', '../m/shinozaki/'+ (sIndex+1) +'/' + '001' + '.' + ext);
+	$('#manga_img').attr('src', '../m/shinozaki/'+ (sIndex+1) +'/' + '001' + '.' + ext);
 	
 	//h1 update
 	$('#cur_chapter').html(sIndex+1);
@@ -382,7 +397,7 @@ function loadNextChapter(){
  
 	if(chapter<chapterNb.length-1){
 		var ext = getMangaExtension(chapter+1);
-		$('.manga_img').attr('src', '../m/shinozaki/'+ (chapter+1) +'/' + '001' + '.' + ext);
+		$('#manga_img').attr('src', '../m/shinozaki/'+ (chapter+1) +'/' + '001' + '.' + ext);
 		$('#cur_chapter').html(chapter+1);
 		//Change select state
 		setSelectState(chapter+1);
@@ -395,7 +410,7 @@ function loadPreviousChapter(){
  
 	if(chapter>1){
 		var ext = getMangaExtension(chapter-1);
-		$('.manga_img').attr('src', '../m/shinozaki/'+ (chapter-1) +'/' + '001' + '.' + ext);
+		$('#manga_img').attr('src', '../m/shinozaki/'+ (chapter-1) +'/' + '001' + '.' + ext);
 		$('#cur_chapter').html(chapter-1);
 		//Change select state
 		setSelectState(chapter-1);
@@ -422,7 +437,7 @@ function getPadding(a){
 }
 
 function getPageCurNb(){
-	var a = $('.manga_img')[0].src;
+	var a = $('#manga_img')[0].src;
 	var b = a.indexOf('/',a.indexOf('/m/')+3); //First '/' after /m/
 	var page = parseInt(a.substr(b+3,3)); // get current page number
 	
@@ -430,7 +445,7 @@ function getPageCurNb(){
 }
 
 function getChapterCurNb(){
-	var a = $('.manga_img')[0].src;
+	var a = $('#manga_img')[0].src;
 	var b = a.indexOf('/',a.indexOf('/m/')+3); //First '/' after /m/
 	var chapter = parseInt(a.substr(b+1,1));// get current chapter number
 	
@@ -487,6 +502,34 @@ function liUpdate(){
 			$( allLi ).addClass( 'ch_selected' );
 		}
 	}	
+}
+function toggleImgZoom(){
+
+
+	if ( $("#div_manga_img").hasClass('x_large') ){
+		var image = $('#manga_img');
+		var originalWidth = image[0].naturalWidth; 
+		var originalHeight = image[0].naturalHeight;
+		
+		$("#div_manga_img").removeClass('x_large');
+		$("#div_manga_img").css('position','static');
+		$("#div_p_div_manga_img").height('auto');
+		$("#div_manga_img").width('auto');
+
+		
+	} else {
+
+		var width = $("#manga_img").width();
+		var height = $("#manga_img").height();
+		var proportion =  height / width;
+	
+		width = $("body").width();
+		$("#div_manga_img").addClass('x_large');
+		$("#div_manga_img").css('position','absolute');
+		$("#div_manga_img").css('left','0');
+		$("#div_manga_img").width(width);
+		$("#div_p_div_manga_img").height(width * proportion);
+	}
 }
 //-----------------------------------------------------------------------manga/register.html
 function register(){

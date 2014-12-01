@@ -107,6 +107,13 @@ h1{
 .header_no_overlap{
 	height:60px;
 }
+/*----------------------------------Footer----------------------------------*/
+#footer{
+	height:120px;
+	background-color:gray;
+	border: 2px solid black;
+}
+
 /*----------------------------------Index.html----------------------------------*/
 #main_div{
 	
@@ -346,12 +353,18 @@ body {
 	margin:auto;
 	background-color:green;
 	text-align:center;
-	
+	overflow:auto;
 }
-.manga_img{
-	max-width:100%;
-	max-height:100%;
+#manga_img{
+	min-width:100%;
+	min-height:100%;
 	cursor:pointer;
+}
+#div_manga_img{
+	/*background-color:red;*/
+}
+#div_p_div_manga_img{
+	/*background-color:blue;*/
 }
 /*
 #main_div{
@@ -424,6 +437,15 @@ top:80px;
 }
 #l_btn_left{
 	margin-left:150px;
+}
+#div_top_navigation{
+	overflow:auto;
+}
+#div_zoom{
+	
+}
+#zoom_btn{
+	cursor:pointer;
 }
 /*
 ------------------------------------------manga/login.html
