@@ -1,7 +1,6 @@
 'use strict'; // Remonte d'avantage les erreurs de code
 
- //Nombre de page dans chaque chapitre.
-var chapterNb = [[0,'0'],[32,'jpg'],[33,'jpg'],[31,'png'],[34,'png']];
+
 
 //-------------------On Start----------------//
 $(document).ready(function(){

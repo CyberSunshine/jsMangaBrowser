@@ -8,7 +8,7 @@ index.html
 -------------
 		- Sort latest list by release date
 		- Remove Duplicate in top list (latest and random button)
-3			-getRandomNonRepeatingNumbers(x,n)
+			-getRandomNonRepeatingNumbers(x,n)
 				x=range, n=amount of number
 				Returns an array of numbers
 3		- Top 10 div

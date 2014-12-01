@@ -61,6 +61,11 @@ h1{
 #div_login_register input{
 	margin:3px 0 0 20px;
 }
+.ui-widget{
+	float:right;
+	margin:14px;
+}
+/*
 #headerSearch{
 	float:right;
 	margin-top:15px;
@@ -72,7 +77,7 @@ h1{
 	padding-left:10px;
 	background-color:#DDD;
 	outline: none;
-}
+}*/
 #btn_login_register{
 /*	float:right;*/
 }

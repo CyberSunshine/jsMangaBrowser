@@ -44,7 +44,7 @@ function loadNextMangaPage(){
 	if ( $("#div_manga_img").hasClass('x_large') ){ 
 		
 		//Necessary for smooth transition
-		$( "#manga_img" ).hide( 0, function() {
+		$( "#manga_img" ).hide( 1, function() {
 			toggleImgZoom();
 		});
 		$( "#manga_img" ).show(1);

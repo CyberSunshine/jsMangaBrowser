@@ -1,5 +1,8 @@
 'use strict'; // Remonte d'avantage les erreurs de code
 
+ //Nombre de page dans chaque chapitre.
+var chapterNb = [[0,'0'],[32,'jpg'],[33,'jpg'],[31,'png'],[34,'png']];
+
 //------------------------------------------------------------------------ Chargement initial
 //----------------------------------------------------------------------------------------------------------------------------Active
 $(document).ready(function(){
@@ -10,9 +13,9 @@ $(document).ready(function(){
 	var msgDefault = 'Rechercher';
 	
 	//Clear search text on focus
-	$( "#headerSearch" ).focus(function() {
+	/*$( "#headerSearch" ).focus(function() {
 		$( "#headerSearch" ).val('');
-	});
+	});*/
 	
 	//Toggle show/hide login box with
 	$('#btn_login_register').click(function(){
@@ -21,7 +24,23 @@ $(document).ready(function(){
 	
 	//Form login verification
 	$('#login_form').submit(login);
+	
+	var mangaSearch = [];
 
+	for (var i = 0; i < mangaList.length; i++){
+		mangaSearch[i] = mangaList[i][0];
+	}
+	
+	$( "#tags" ).autocomplete({
+      source: mangaSearch
+    });
+	
+	$("tags").keydown(function(e) {
+		  if(e.keyCode == 13) { // left
+			alert();
+		  }
+		});
+	
 });	//--On start End
 
 //------------------------------------------------------Header
