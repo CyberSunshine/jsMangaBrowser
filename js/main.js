@@ -36,7 +36,11 @@ $(document).ready(function(){
       source: mangaSearch //Table us eto populat the auto autocomplete
     ,
 	select: function( event, ui ) { //Redirect when selecting a list item
-       window.location.href = "manga/somemanga.html";
+      	  if (window.location.pathname.indexOf('/somemanga.html') >= 0){
+				window.location.href = "../manga/somemanga.html";
+			}else{
+				window.location.href = "manga/somemanga.html";
+			}
  
         return false;
       } }
@@ -45,7 +49,11 @@ $(document).ready(function(){
 	//Redirect with the enter key
 	$("#tags").keydown(function(e) {
 		  if(e.keyCode == 13) { // left
-			window.location.href = "manga/somemanga.html";
+		  if (window.location.pathname.indexOf('/somemanga.html') >= 0){
+				window.location.href = "../manga/somemanga.html";
+			}else{
+				window.location.href = "manga/somemanga.html";
+			}
 		  }
 		});
 
