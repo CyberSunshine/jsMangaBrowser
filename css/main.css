@@ -40,12 +40,15 @@ h1{
 }
 /*----------------------------------Header--------------------------------*/
 #header{
-	height:60px;
+	min-height:60px;
 	width:100%;
 	background-color:#134F00;
 	border: 2px solid black;
 	position:fixed;
 	z-index:100;
+}
+.header_no_overlap{
+	min-height:60px;
 }
 #logo{
 	float:left;
@@ -117,9 +120,6 @@ h1{
 #login_form a {
 	margin-right:70px;
 	display:inline-block;
-}
-.header_no_overlap{
-	height:60px;
 }
 /*----------------------------------Footer----------------------------------*/
 #footer{
