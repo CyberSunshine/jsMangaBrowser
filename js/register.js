@@ -13,6 +13,11 @@ $(document).ready(function(){
 		//Password 2 validation
 		$( "form[name='register_form'] input[name=password2]" ).keyup(comparePassword);
 
+		$( "#datepicker" ).datepicker({
+			changeMonth: true,
+			changeYear: true
+		});
+		
 });	//--On start End
 
 function register(){

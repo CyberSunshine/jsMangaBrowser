@@ -12,14 +12,12 @@ index.html
 				Returns an array of numbers
 3		- Top 10 div
 3		- Add sort by volume in the isotope list
-		css console error
 --------------------------
 somemanga.html
 --------------------------
 3		-Disable highlight and cursor on ...
 		-Manga recommendation in footer
 2		-Path home/manga1
-		-remove alert
 --------------------------
 register.html
 --------------------------

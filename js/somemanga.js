@@ -60,7 +60,7 @@ function loadNextMangaPage(){
 		$('#cur_chapter').html(curChapter);
 
 	}else if (curChapter == chapterNb.length-1 && curPage== chapterNb[curChapter][0]){
-		alert('No next chapter');
+		console.log('No next chapter');
 		return 0;
 	}
 	//var type = chapterNb[c-1][1]; //get jpg or png
@@ -87,7 +87,7 @@ function loadPreviousMangaPage(){
 		setSelectState(curChapter);
 		$('#cur_chapter').html(curChapter);
 	}else if (curChapter==1 & curPage==1){
-		alert('No previous page');
+		console.log('No previous page');
 		return 0;
 	}
 	//var type = chapterNb[c-1][1]; //get jpg or png
@@ -135,8 +135,9 @@ function loadNextChapter(){
 		//Change select state
 		setSelectState(chapter+1);
 	}else{
-		alert('No next chapter');
+		console.log('No next chapter');
 	}
+	liUpdate();
 }
 function loadPreviousChapter(){
 	var chapter = getChapterCurNb();
@@ -148,8 +149,9 @@ function loadPreviousChapter(){
 		//Change select state
 		setSelectState(chapter-1);
 	}else{
-		alert("Can't go lower");
+		console.log("No previous chapter");
 	}
+	liUpdate();
 }
 function setSelectState(a){
 	
@@ -196,7 +198,7 @@ function liUpdate(){
 	$( ".btn_mid" ).empty();// Step 1: remove all li
 	
 	if( curPage < 5){ //Display 1-5 & last 2
-		for(var i = 1;i<=5;i++) liGroup += '--><li>' + i + '</li><!--';
+		for(var i = 1;i<=8;i++) liGroup += '--><li>' + i + '</li><!--';
 		liGroup +=  '--><li>' + '...' + '</li><!--';
 		liGroup +=  '--><li>' + (chapterNb[chapter][0]-1) + '</li><!--';
 		liGroup +=  '--><li>' + chapterNb[chapter][0] + '</li><!--';
@@ -204,7 +206,7 @@ function liUpdate(){
 		liGroup +=  '--><li>' + 1 + '</li><!--';
 		liGroup +=  '--><li>' + 2 + '</li><!--';
 		liGroup +=  '--><li>' + '...' + '</li><!--';
-		for(var i = (chapterNb[chapter][0]-5);i<=(chapterNb[chapter][0]);i++) liGroup += '--><li>' + i + '</li><!--';
+		for(var i = (chapterNb[chapter][0]-7);i<=(chapterNb[chapter][0]);i++) liGroup += '--><li>' + i + '</li><!--';
 	}else{ // Display first 2 & last 2 & 5 pages centered on current page
 		liGroup +=  '--><li>' + 1 + '</li><!--';
 		liGroup +=  '--><li>' + 2 + '</li><!--';
@@ -248,6 +250,8 @@ function toggleImgZoom(){
 		$("#div_manga_img").css('position','static');
 		$("#div_p_div_manga_img").height('auto');
 		$("#div_manga_img").width('auto');
+		$("#manga_img").css('max-height','100%');
+		$("#manga_img").css('max-width','100%');
 
 		
 	} else {
@@ -262,5 +266,7 @@ function toggleImgZoom(){
 		$("#div_manga_img").css('left','0');
 		$("#div_manga_img").width(width);
 		$("#div_p_div_manga_img").height(width * proportion);
+		$("#manga_img").css('height','95%');
+		$("#manga_img").css('width','95%');
 	}
 }

@@ -39,16 +39,22 @@
 			<h1>Register</h1>
 
 			<form id="register_form" method="post" accept-charset="utf-8" name='register_form' action='index.html'>
+				<hr>
+				<p><label for="id_email">Email:</label><input type="text" placeholder="E-mail address" name="email" id="id_email" /><span></span></p>
+				<p><label for="id_username">Username:</label><input id="id_username" type="text" placeholder="Username" name="username" maxlength="30" /><span></span></p>
+				<p><label for="datepicker">Birthday:</label><input type="text" id="datepicker" name="birthday" placeholder="Birthday"><span></span></p>
+				<p><label for="id_password1">Password:</label><input type="password" placeholder="Password" name="password1" id="id_password1" /><span></span></p>
+				<p><label for="id_password2">Password:</label><input type="password" placeholder="Password confirmation" name="password2" id="id_password2" /><span></span></p>
 				
-					<p><label for="id_email">Email:</label> <input type="text" placeholder="E-mail address" name="email" id="id_email" /><span></span></p>
-					<p><label for="id_username">Username:</label> <input id="id_username" type="text" placeholder="Username" name="username" maxlength="30" /><span></span></p>
-					<p><label for="id_password1">Password:</label> <input type="password" placeholder="Password" name="password1" id="id_password1" /><span></span></p>
-					<p><label for="id_password2">Password:</label> <input type="password" placeholder="Password confirmation" name="password2" id="id_password2" /><span></span></p>
-					
-					<div id="submit_div">
-						<p><input type="submit" value="Create an account" /></p>
-					</div>
+				
+				<div id="submit_div">
+					<p><input type="submit" value="Create an account" /></p>
+				</div>
+				<hr>
+				<p><a href="#">Log in</a> or <a href="#">reset your password</a></p>
 			</form>
+			
+				
 			
 		</div>
 	</div>
