@@ -124,14 +124,14 @@ function generateTopList(){
 	for(var i = 0; i <= 50; i++){
 		div = '<div id="m2_' + i + '" class="m2">' + 
 		'<div class="m2_1">' +
-		'<div class="m2_img"></div>' +
+		'<div class="m2_img"></div>' +//m2_img
 		'<a href="manga/somemanga.html" class="m2_link"><p class="m2_t ">' + getTrimMangaTitle(getMangaTitleById(i),30) + '</p></a>' +
 		'<p class="m2_c">Vol: ' + 	getMangaChapterById(i) + '</p>' +
-		'</div>' +
+		'</div>' +//m2_1
 		'<div class="m2_2">' +
 		'<p class="m2_d">' + getMangaYearById(i) + '</p>' +
-		'</div>' +
-		'</div>';
+		'</div>' +//m2_2
+		'</div>';//m2
 		
 		$( "#main_div_p2_2" ).append( div );
 	}

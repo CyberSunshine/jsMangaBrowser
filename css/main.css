@@ -5,7 +5,11 @@ div, body, p, a, ul, li{
 	padding:0;
 }
 body{
-	background-color:#111;
+	/*background-color:#111;*/
+/*background: linear-gradient(to bottom, rgba(214,249,255,1) 0%,rgba(158,232,250,1) 100%); /* W3C */
+	background-image:url('../images/bg.png');
+	background-repeat: repeat;
+    background-attachment: fixed
 }
 .button{
 	margin:10px;
@@ -37,10 +41,14 @@ h1{
 #header{
 	height:60px;
 	width:100%;
-	background-color:#555;
+	background-color:#134F00;
 	border: 2px solid black;
 	position:fixed;
 	z-index:100;
+}
+#logo{
+	float:left;
+	margin:5px;
 }
 #headerTitle{
 	text-align:left;
@@ -123,10 +131,10 @@ h1{
 #main_div{
 	
 	max-width:960px;
-	background-color:#6685E0;
+	background-color:#DDD;
 	/*border: 2px solid black;*/
 	margin: 0 auto;
-	/*position:relative;*/
+	overflow:auto;
 }
 /*----------------------------------Main P1 Manga List ---*/
 #main_div_p1{
@@ -136,7 +144,7 @@ h1{
 	/*background-color:#888;*/
 }
 #main_div_p1_1{
-	background-color:#888;
+	background-color:#29A329;
 }
 #main_div_p1_2{
 	/*background-color:orange;*/
@@ -144,7 +152,7 @@ h1{
 	opacity:0.8;
 	padding:10px;
 	margin:auto;
-	position:relative;
+	/*position:relative;*/
 }
 #progress_bar{
 	position:absolute;
@@ -204,7 +212,7 @@ h1{
 	float:right;
 }
 #main_div_p2{
-	background-color:#666;
+	background-color:#29A329;
 	overflow:auto;
 }
 .main_div_p2_b1{
@@ -214,17 +222,36 @@ h1{
 	float:right;
 }
 /*--------------- Main*/
+#main_div_p2_2{
+	background-color:red;
+	/*overflow:visible;*/
+	float:left;
+	/*width:400px;*/
+
+}
+#div_p2_1{
+	/*background-color:purple;*/
+	overflow:auto;
+}
+#div_top_10{
+	/*display:inline-block;*/
+	background-color:orange;
+	height:200px;
+	width:200px;
+	z-index:10;
+	float:right;
+}
 .m2{
 	height:40px;
 	width:500px;
-	/*background-color:#339933;*/
+	background-color:#99FF33;
 	margin: 8px;
 	/*display:inline-block;*/
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
 	border-radius: 10px;
-	background-color:white;
-	clear:both;
+	/*clear:both;*/
+	background: linear-gradient(to bottom, rgba(168,163,161,1) 0%,rgba(223,229,215,1) 40%,rgba(179,190,173,1) 100%); /* W3C */
 }
 .m2_img{
 	height:15px;
@@ -267,6 +294,7 @@ float:left;
 .m2_2{
 /*background-color:orange;*/
 }
+
 /*----------------------------------Isotop Start------------------------------------------*/
 * {
   -webkit-box-sizing: border-box;
@@ -348,6 +376,11 @@ body {
 /*
 ------------------------------------------manga/somemanga.html
 */
+#bg{
+	background-image:url('../images/bg.png');
+	background-repeat: repeat;
+    background-attachment: fixed
+}
 #manga_body_div{
 	background-color:red;
 	max-width:960px;

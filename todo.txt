@@ -12,6 +12,7 @@ index.html
 				Returns an array of numbers
 3		- Top 10 div
 3		- Add sort by volume in the isotope list
+		css console error
 --------------------------
 somemanga.html
 --------------------------

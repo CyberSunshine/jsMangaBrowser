@@ -16,6 +16,7 @@
 	<body>
 <!-- ================================== Header Debut ======================== -->
 		<div id='header'>
+			<a href="../index.html"><img src='../images/logo.png' alt='' id='logo' /></a>
 			<a id="headerTitle" href="../index.html">Manga Supreme</a>
 			<div id='div_login_register'><button id='btn_login_register' class='button account'>Login/Register</button></div>
 			<div class="ui-widget"><input id="tags"></div>
@@ -32,33 +33,35 @@
 <!-- =================================== Header Fin ========================= -->
 
 <!-- ===================================== Body =========================== -->
-<div id='main_div'>
+<div id='bg'>
+	<div id='main_div'>
 
-	<div id='manga_div'>
-		<h1>Shinozaki-san Ki o Ota Shika ni! ch:<span id='cur_chapter'>1</span></h1>
-		<div id='div_top_navigation'>
-			<select id='chapter_select'>
-				<option>Vol: 01 Ch:001</option>
-				<option>Vol: 02 Ch:002</option>
-				<option>Vol: 03 Ch:003</option>
-				<option>Vol: 04 Ch:004</option>
-			</select>
-			
-			<ul id='btn_left' class='chapter_ul pre_chapter'><li><------------</li></ul>
-			<ul id='btn_mid' class='btn_mid chapter_ul'>	</ul>
-			<ul id='btn_right' class='chapter_ul next_chapter'><li>-----------></li></ul>
-		</div>
-		<div id='div_zoom'>
-			<img id='zoom_btn' src='../images/zoom.png'>
-		</div>
-		<div id='div_p_div_manga_img'>
-			<div id='div_manga_img'>
-				<img id='manga_img' src='../m/shinozaki/1/001.jpg' />
+		<div id='manga_div'>
+			<h1>Shinozaki-san Ki o Ota Shika ni! ch:<span id='cur_chapter'>1</span></h1>
+			<div id='div_top_navigation'>
+				<select id='chapter_select'>
+					<option>Vol: 01 Ch:001</option>
+					<option>Vol: 02 Ch:002</option>
+					<option>Vol: 03 Ch:003</option>
+					<option>Vol: 04 Ch:004</option>
+				</select>
+				
+				<ul id='btn_left' class='chapter_ul pre_chapter'><li><------------</li></ul>
+				<ul id='btn_mid' class='btn_mid chapter_ul'>	</ul>
+				<ul id='btn_right' class='chapter_ul next_chapter'><li>-----------></li></ul>
 			</div>
+			<div id='div_zoom'>
+				<img id='zoom_btn' src='../images/zoom.png'>
+			</div>
+			<div id='div_p_div_manga_img'>
+				<div id='div_manga_img'>
+					<img id='manga_img' src='../m/shinozaki/1/001.jpg' />
+				</div>
+			</div>
+			<ul id='l_btn_left' class='chapter_ul pre_chapter'><li><------------</li></ul>
+			<ul  class='btn_mid chapter_ul'></ul>
+			<ul id='l_btn_right' class='chapter_ul next_chapter'><li>-----------></li></ul>
 		</div>
-		<ul id='l_btn_left' class='chapter_ul pre_chapter'><li><------------</li></ul>
-		<ul  class='btn_mid chapter_ul'></ul>
-		<ul id='l_btn_right' class='chapter_ul next_chapter'><li>-----------></li></ul>
 	</div>
 </div>
 <!-- ====================================== Body  Fin=========================== -->
