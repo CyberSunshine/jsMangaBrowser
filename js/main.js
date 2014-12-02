@@ -27,20 +27,28 @@ $(document).ready(function(){
 	
 	var mangaSearch = [];
 
+	//Convert the 2d array into a regular array
 	for (var i = 0; i < mangaList.length; i++){
 		mangaSearch[i] = mangaList[i][0];
 	}
 	
 	$( "#tags" ).autocomplete({
-      source: mangaSearch
-    });
+      source: mangaSearch //Table us eto populat the auto autocomplete
+    ,
+	select: function( event, ui ) { //Redirect when selecting a list item
+       window.location.href = "manga/somemanga.html";
+ 
+        return false;
+      } }
+	);
 	
-	$("tags").keydown(function(e) {
+	//Redirect with the enter key
+	$("#tags").keydown(function(e) {
 		  if(e.keyCode == 13) { // left
-			alert();
+			window.location.href = "manga/somemanga.html";
 		  }
 		});
-	
+
 });	//--On start End
 
 //------------------------------------------------------Header
