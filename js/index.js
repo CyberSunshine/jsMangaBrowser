@@ -6,68 +6,69 @@
 $(document).ready(function(){
 
 
-		generateTopList();
-		generateLatestMangaList();
+	generateTopList();
+	generateLatestMangaList();
+	
+	//Boutton Random
+	$("#btn_random").click(function(){
 		
-		//Boutton Random
-		$("#btn_random").click(function(){
-			
-			emptyM1();
-			generateRandomMangaList();
-			$("#main_div_p1_2").show("slow");
-			fakeLoading();
-		});
+		emptyM1();
+		generateRandomMangaList();
+		$("#main_div_p1_2").show("slow");
+		fakeLoading();
+	});
 
-		//Boutton Latest
-		$("#btn_latest").click(function(){
+	//Boutton Latest
+	$("#btn_latest").click(function(){
+		generateLatestMangaList();
+		fakeLoading();
+	});
+	
+	//Boutton A-Z
+	$("#btn_az").click(function(){
+		$container.isotope({ sortBy: 'name' })
+	});
+	
+	//Boutton Collapse
+	$("#btn_collapse").click(function(){
+		
+		var height = parseInt($("#main_div_p1_2").height());
+		//alert(height);
+		if(height>10){
+			$("#main_div_p1_2").hide("slow", emptyM1);
+		}else{
 			generateLatestMangaList();
 			fakeLoading();
-		});
-		
-		//Boutton A-Z
-		$("#btn_az").click(function(){
-			$container.isotope({ sortBy: 'name' })
-		});
-		
-		//Boutton Collapse
-		$("#btn_collapse").click(function(){
-			
-			var height = parseInt($("#main_div_p1_2").height());
-			//alert(height);
-			if(height>10){
-				$("#main_div_p1_2").hide("slow", emptyM1);
-			}else{
-				generateLatestMangaList();
-				fakeLoading();
-			}
-		});
-		
-	//-------------Isotope-------------//
-		// init Isotope
-		var $container = $('#main_div_p2_2').isotope({
-		itemSelector: '.m2',
-		layoutMode: 'fitRows',
-		getSortData: {
-			name: '.m2_t'
 		}
-	  });
+	});
+	
+//-------------Isotope-------------//
+	// init Isotope
+	var $container = $('#main_div_p2_2').isotope({
+	itemSelector: '.m2',
+	layoutMode: 'fitRows',
+	getSortData: {
+		name: '.m2_t'
+	}
+  });
 
-	  // bind sort button click
-		$('#sorts').on( 'click', 'button', function() {
-			var sortValue = $(this).attr('data-sort-value');
-			$container.isotope({ sortBy: sortValue });
-		});
+  // bind sort button click
+	$('#sorts').on( 'click', 'button', function() {
+		var sortValue = $(this).attr('data-sort-value');
+		$container.isotope({ sortBy: sortValue });
+	});
 
-	  // change is-checked class on buttons
-		$('.button-group').each( function( i, buttonGroup ) {
-			var $buttonGroup = $( buttonGroup );
-			$buttonGroup.on( 'click', 'button', function() {
-			$buttonGroup.find('.is-checked').removeClass('is-checked');
-			$( this ).addClass('is-checked');
-			});
+  // change is-checked class on buttons
+	$('.button-group').each( function( i, buttonGroup ) {
+		var $buttonGroup = $( buttonGroup );
+		$buttonGroup.on( 'click', 'button', function() {
+		$buttonGroup.find('.is-checked').removeClass('is-checked');
+		$( this ).addClass('is-checked');
 		});
+	});
 
 //------------------------Fin Isotope----------------//
+
 });	//--On start End
 
 
@@ -121,10 +122,16 @@ function generateTopList(){
 	var div = '';
 	var randomId = '';
 	var id = '';
-	for(var i = 0; i <= 50; i++){
+	for(var i = 0; i <= 22; i++){
+		var book = '';
+		if(getMangaYearById(i).indexOf("present") >= 0){
+			book='<img src="images/openedbook.png" />';
+		}else{
+			book='<img src="images/closedbook.gif" />';
+		}
 		div = '<div id="m2_' + i + '" class="m2">' + 
 		'<div class="m2_1">' +
-		'<div class="m2_img"></div>' +//m2_img
+		'<div class="m2_img">' + book + '</div>' +//m2_img
 		'<a href="manga/somemanga.html" class="m2_link"><p class="m2_t ">' + getTrimMangaTitle(getMangaTitleById(i),30) + '</p></a>' +
 		'<p class="m2_c">Vol: ' + 	getMangaChapterById(i) + '</p>' +
 		'</div>' +//m2_1

@@ -91,7 +91,7 @@ h1{
 /*	float:right;*/
 }
 #hidden_login{
-	position:absolute;
+	position:fixed;
 	top:60px;
 	right:20px;
 }
@@ -123,9 +123,10 @@ h1{
 }
 /*----------------------------------Footer----------------------------------*/
 #footer{
-	height:120px;
+	/*height:120px;*/
 	background-color:gray;
-	border: 2px solid black;
+	/*border: 2px solid black;*/
+	text-align:center;
 }
 
 /*----------------------------------Index.html----------------------------------*/
@@ -234,12 +235,7 @@ h1{
 	/*background-color:purple;*/
 	overflow:auto;
 }
-#div_top_10{
-	/*display:inline-block;*/
-	background-color:orange;
-	height:200px;
-	width:200px;
-	z-index:10;
+#div_image{
 	float:right;
 }
 .m2{
@@ -257,9 +253,9 @@ h1{
 .m2_img{
 	height:15px;
 	width:15px;
-	background-color:#FFF;
+	/*background-color:#FFF;*/
 	/*display:inline-block;*/
-	border: 1px solid black;
+	/*border: 1px solid black;*/
 	margin:5px;
 	/*-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
@@ -427,8 +423,8 @@ body {
 	overflow:auto;
 }
 #manga_img{
-	/*max-width:100%;
-	max-height:100%;*/
+	max-width:100%;
+	max-height:100%;
 	/*border:1px solid red;*/
 	cursor:pointer;
 	display:block;
@@ -459,6 +455,7 @@ top:80px;
 	margin-left:40px;
 	height:25px;
 	margin-top:20px;
+	background-color:#DDD;
 }
 .chapter_ul{
 	list-style:none;
@@ -525,7 +522,7 @@ top:80px;
 .btn_left img{
 	position:absolute;
 	top:5px;
-	right:20px;
+	right:22px;
 }
 .btn_mid{
 	margin-left:50px;
