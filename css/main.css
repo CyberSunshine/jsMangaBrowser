@@ -5,8 +5,6 @@ div, body, p, a, ul, li, img{
 	padding:0;
 }
 body{
-	/*background-color:#111;*/
-	/*background: linear-gradient(to bottom, rgba(214,249,255,1) 0%,rgba(158,232,250,1) 100%); /* W3C */
 	background-image:url('../images/bg.png');
 	background-repeat: repeat;
     background-attachment: fixed;
@@ -35,7 +33,6 @@ body{
 }*/
 h1{
 	text-align:center;
-	/*display:inline-block;*/
 	z-index:100;
 }
 /*----------------------------------Header--------------------------------*/
@@ -54,7 +51,6 @@ h1{
 #headerTitle{
 	text-align:left;
 	font-size:30px;
-	/*border: 2px solid black;*/
 	display: inline-block;
 	margin:10px;
 	color:white;
@@ -62,13 +58,9 @@ h1{
 	text-decoration:none;
 }
 #div_login_register{
-	/*float:right;*/
 	position:absolute;
 	top:5px;
 	right:0;
-}
-#div_login_register p{
-/*	margin:10px 10px 0;*/
 }
 #div_login_register input{
 	margin:3px 0 0 20px;
@@ -77,25 +69,8 @@ h1{
 	position:absolute;
 	top:18px;
 	right:154px;
-	/*margin:14px;*/
-	
 }
-/*
-#headerSearch{
-	float:right;
-	margin-top:15px;
-	margin-right:15px;
-	-webkit-border-radius: 10px;
-	-moz-border-radius: 10px;
-	border-radius: 10px;
-	height:25px;
-	padding-left:10px;
-	background-color:#DDD;
-	outline: none;
-}*/
-#btn_login_register{
-/*	float:right;*/
-}
+#btn_login_register{}
 #hidden_login{
 	position:fixed;
 	top:60px;
@@ -126,38 +101,27 @@ h1{
 }
 /*----------------------------------Footer----------------------------------*/
 #footer{
-	/*height:120px;*/
 	background-color:gray;
-	/*border: 2px solid black;*/
 	text-align:center;
 }
-
 /*----------------------------------Index.html----------------------------------*/
 #main_div{
 	padding-top:60px;
 	max-width:960px;
 	background-color:#DDD;
-	/*border: 2px solid black;*/
+
 	margin: 0 auto;
 	overflow:auto;
 }
 /*----------------------------------Main P1 Manga List ---*/
-#main_div_p1{
-	/*height:400px;*/
-	/*width:100%;*/
-	/*border: 2px solid black;*/
-	/*background-color:#888;*/
-}
+#main_div_p1{}
 #main_div_p1_1{
 	background-color:#29A329;
 }
 #main_div_p1_2{
-	/*background-color:orange;*/
-	/*min-height:300px;*/
 	opacity:0.8;
 	padding:10px;
 	margin:auto;
-	/*position:relative;*/
 }
 #progress_bar{
 	position:absolute;
@@ -171,7 +135,6 @@ h1{
 .m1{
 	height:250px;
 	width:140px;
-	/*background-color:#339933;*/
 	margin: 8px;
 	display:inline-block;
 	-webkit-border-radius: 10px;
@@ -182,7 +145,6 @@ h1{
 	height:160px;
 	width:90%;
 	background-color:#FFF;
-	/*display:inline-block;*/
 	border: 1px solid black;
 	margin:5px auto 0;
 	-webkit-border-radius: 10px;
@@ -231,14 +193,9 @@ h1{
 }
 /*--------------- Main*/
 #div_p2_1{
-	/*background-color:green;*/
-	/*overflow:auto;*/
 	position:relative;
 }
 #main_div_p2_2{
-	/*background-color:red;*/
-	/*width:400px;*/
-	/*float:left;*/
 }
 /*#div_image{}*/
 #div_image img{
@@ -248,8 +205,6 @@ h1{
 }
 /*Idotope divs*/
 .m2{
-	/*overflow:auto;*/
-	/*position:static!important;*/
 	height:40px;
 	width:500px;
 	margin: 8px;
@@ -381,10 +336,7 @@ body {
 ------------------------------------------manga/somemanga.html
 */
 #main_manga_div{
-	
 	max-width:960px;
-	/*background-color:#222;*/
-	/*border: 2px solid black;*/
 	margin: 0 auto;
 	overflow:auto;
 }
@@ -426,40 +378,19 @@ body {
 	margin:auto;
 }
 #manga_div{
-	/*padding:10px;*/
 	margin:auto;
-	/*background-color:green;*/
 	text-align:center;
 	overflow:auto;
 }
 #manga_img{
 	max-width:100%;
 	max-height:100%;
-	/*border:1px solid red;*/
 	cursor:pointer;
 	display:block;
 	margin:auto;
 }
-#div_manga_img{
-	/*background-color:red;*/
-	/*margin:0;*/
-	/*height:auto;*/
-}
-#div_p_div_manga_img{
-	/*background-color:blue;*/
-	/*height:auto;*/
-}
-/*
-#main_div{
-min-height:2000px;
-max-width:960px;
-background-color:#6685E0;
-border: 2px solid black;
-margin: 0 auto;
-margin-top:0px;
-position:relative;
-top:80px;
-}*/
+#div_manga_img{}
+#div_p_div_manga_img{}
 #chapter_select{
 	float:left;
 	margin-left:40px;
@@ -507,7 +438,6 @@ top:80px;
 }
 .ch_selected{
 	background: linear-gradient(to bottom, rgba(183,222,237,1) 0%, rgba(113,206,239,1) 50%, rgba(33,180,226,1) 51%, rgba(183,222,237,1) 100%)!important;
-	
 }
 #btn_left li{
 	margin-left:50px;
@@ -554,19 +484,15 @@ top:80px;
 ------------------------------------------manga/register.html
 */
 #login_div{
-	/*background:white;*/
-	/*border:2px solid black;*/
 	margin: 200px auto;
-
 }
 #register_form{
 	width:500px;
 	margin:auto;
-	/*border:1px solid red;*/
-}*****
+}
 #login_div h1{
 	margin:auto;
-	text-align:center;*****
+	text-align:center;
 }
 #register_form label{
 	width:100px;
