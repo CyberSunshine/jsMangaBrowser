@@ -48,7 +48,9 @@ $(document).ready(function(){
 	itemSelector: '.m2',
 	layoutMode: 'fitRows',
 	getSortData: {
-		name: '.m2_t'
+		name: '.m2_t',
+		volume: '.m2_v parseInt',
+		year: '.m2_d parseInt'
 	}
   });
 
@@ -130,10 +132,10 @@ function generateTopList(){
 			book='<img src="images/closedbook.gif" />';
 		}
 		div = '<div id="m2_' + i + '" class="m2">' + 
-		'<div class="m2_1">' +
 		'<div class="m2_img">' + book + '</div>' +//m2_img
+		'<div class="m2_1">' +
 		'<a href="manga/somemanga.html" class="m2_link"><p class="m2_t ">' + getTrimMangaTitle(getMangaTitleById(i),30) + '</p></a>' +
-		'<p class="m2_c">Vol: ' + 	getMangaChapterById(i) + '</p>' +
+		'<p class="m2_c">Vol: <span class="m2_v">' + 	getMangaChapterById(i) + '</span></p>' +
 		'</div>' +//m2_1
 		'<div class="m2_2">' +
 		'<p class="m2_d">' + getMangaYearById(i) + '</p>' +

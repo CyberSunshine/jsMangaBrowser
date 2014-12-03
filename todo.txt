@@ -10,14 +10,12 @@ index.html
 			-getRandomNonRepeatingNumbers(x,n)
 				x=range, n=amount of number
 				Returns an array of numbers
-3		- Top 10 div
-3		- Add sort by volume in the isotope list
+n/a		- Top 10 div
 --------------------------
 somemanga.html
 --------------------------
 3		-Disable highlight and cursor on ...
 		-Manga recommendation in footer
-2		-Path home/manga1
 --------------------------
 register.html
 --------------------------
