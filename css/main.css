@@ -8,7 +8,6 @@ body{
 	background-image:url('../images/bg.png');
 	background-repeat: repeat;
     background-attachment: fixed;
-	
 }
 .button{
 	margin:10px;
@@ -99,6 +98,11 @@ h1{
 	margin-right:70px;
 	display:inline-block;
 }
+#div_login_temp p{
+	color:#0099CC;
+	font-weight:bold;
+	margin-right:5px;
+}
 /*----------------------------------Footer----------------------------------*/
 #footer{
 	background-color:gray;
@@ -109,7 +113,6 @@ h1{
 	padding-top:60px;
 	max-width:960px;
 	background-color:#DDD;
-
 	margin: 0 auto;
 	overflow:auto;
 }
@@ -122,13 +125,15 @@ h1{
 	opacity:0.8;
 	padding:10px;
 	margin:auto;
+	min-width:360px;
+	position:relative;
 }
 #progress_bar{
 	position:absolute;
 	width:100px;
 	height:100px;
 	background-color:green;
-	top:35%;
+	top:230px;
 	left:20%;
 	z-index:100;
 }
@@ -345,7 +350,7 @@ body {
 	margin-top:20px;
 }
 #top_manga_div{
-	width:960px;
+	max-width:960px;
 	background-color:green;
 	border:2px solid black;
 	-webkit-border-bottom-right-radius: 50px;
@@ -354,9 +359,10 @@ body {
 	-moz-border-radius-bottomleft: 50px;
 	border-bottom-right-radius: 50px;
 	border-bottom-left-radius: 50px;
+	margin-top:60px;
 }
 #bottom_manga_div{
-	width:960px;
+	max-width:960px;
 	background-color:green;
 	border:2px solid black;
 	-webkit-border-top-left-radius: 50px;
@@ -480,14 +486,20 @@ body {
 #zoom_btn{
 	cursor:pointer;
 }
+#m_btn_back{
+	display:none;
+}
 /*
 ------------------------------------------manga/register.html
 */
 #login_div{
-	margin: 200px auto;
+	z-index:10;
+	position:relative;
+	height:720px;
+	padding-top:185px;
 }
 #register_form{
-	width:500px;
+	max-width:500px;
 	margin:auto;
 }
 #login_div h1{
@@ -503,37 +515,72 @@ body {
 	color:red;
 	margin-left:5px;
 }
+#register_form input{
+	
+}
+#r_img_left{
+	position:absolute;
+	left:0;
+	top:0;
+	z-index:-1;
+	opacity:0.3;
+}
+#r_img_right{
+	position:absolute;
+	right:0;
+	top:0;
+	z-index:-1;
+	opacity:0.3;
+}
+/*
+---------------------------Media
+*/
 @media (max-width: 750px) {
-.ui-widget, #div_login_register,#headerTitle,#logo{
-	display:block;
-	float:none;
+	.ui-widget, #div_login_register,#headerTitle,#logo{
+		display:block;
+		float:none;
+	}
+	#main_div{
+		padding:0;
+	}
+	.m2{
+		max-width:350px;
+	}
+	.m2_2{
+		position:absolute;
+		right:0;
+		bottom:-6px;
+	}
+	#div_p2_1{
+		max-width:100%;
+	}
+	#headerTitle{
+		display:block;
+	}
+	#logo{
+		display:block;
+	}
+	#header{
+		position:static;
+		height:210px;
+	}
+	.ui-widget, #div_login_register{
+		position:static;
+	}
+	.ui-widget{
+		margin-left:10px;
+	}
+	#manga_div ul,#zoom_btn{
+		display:none;
+	}
+	#m_btn_back{
+		display:inline-block;
+	}
 }
-#main_div{
-	padding:0;
+@media (max-width: 600px) {
+	#r_img_right{
+	display:none;
+	}
 }
-.m2{
-	max-width:auto;
-}
-#div_p2_1{
-	max-width:100%;
-}
-#headerTitle{
-	display:block;
-}
-#logo{
-	display:block;
-}
-#header{
-	position:static;
-	height:210px;
-}
-.ui-widget, #div_login_register{
-	position:static;
-}
-.ui-widget{
-	margin-left:10px;
-}
-}
-
 
 

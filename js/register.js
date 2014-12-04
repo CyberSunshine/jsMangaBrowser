@@ -71,7 +71,7 @@ function validateUsername() {
 	var re = /^[a-z0-9_-]{3,16}$/
 	
 	if (!re.test(user)){
-		$('#id_username ~ span').html('Invalid Username');
+		$('#id_username ~ span').html('Invalid (3-16 characters)');
 		return false;
 	}else{
 		$('#id_username ~ span').html('');
@@ -101,7 +101,7 @@ function validateBirthday() {
 	var re = /(\d+)(-|\/)(\d+)(?:-|\/)(?:(\d+)\s+(\d+):(\d+)(?::(\d+))?(?:\.(\d+))?)?/;
 	
 	if (!re.test(birthday)){
-		$('#datepicker ~ span').html('Invalid birthday');
+		$('#datepicker ~ span').html('Invalid mm/dd/yyyy');
 		return false;
 	}else{
 		$('#datepicker ~ span').html('');

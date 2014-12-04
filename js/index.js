@@ -168,12 +168,6 @@ function getMangaTitleById(id){
 	return title;
 }
 
-//getTrimMangaTitle
-function getTrimMangaTitle(mTitle, t){
-	var trimTitle = mTitle.length > t ? mTitle.substring(0,t) + '...' : mTitle;
-	return trimTitle;
-}
-
 //getMangaChapterById
 function getMangaChapterById(id){
 	var mChapter = mangaList[id][3];

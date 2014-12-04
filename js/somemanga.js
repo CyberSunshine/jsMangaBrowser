@@ -32,6 +32,9 @@ $(document).ready(function(){
 		
 		//Zoom Button
 		$( "#zoom_btn" ).click(toggleImgZoom);
+		
+		//Add click listener to previous chapters button
+		$( "#m_btn_back" ).click(loadPreviousMangaPage);
 
 });	//--On start End
 
@@ -58,7 +61,8 @@ function loadNextMangaPage(){
 		//Change select state
 		setSelectState(curChapter);
 		$('#cur_chapter').html(curChapter);
-
+	
+	//No more page to view
 	}else if (curChapter == chapterNb.length-1 && curPage== chapterNb[curChapter][0]){
 		console.log('No next chapter');
 		return 0;
@@ -68,10 +72,9 @@ function loadNextMangaPage(){
 	// Add padding to the page number -1 > 001
 	curPage++;
 	var page = getPadding(curPage);
+	window.location.href = "#top_manga_div";//Scroll to top after clicking
 	$('#manga_img').attr('src', '../m/shinozaki/'+ curChapter +'/' + page + '.' + ext);
-	
-	
-	
+		
 	liUpdate();
 }
 function loadPreviousMangaPage(){

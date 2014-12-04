@@ -64,7 +64,7 @@ $(document).ready(function(){
 function login(){
 	if($('#login_form input[name="user"]').val()!=''){
 		$('#btn_login_register').css('display','none');
-		$('#div_login_register').append('<div id="div_login_temp"><p>Welcome, ' + $('#login_form input[name="user"]').val() + '</p></div>');
+		$('#div_login_register').append('<div id="div_login_temp"><p>Welcome, ' + getTrimMangaTitle($('#login_form input[name="user"]').val(),6) + '</p></div>');
 		$('#div_login_temp').append('<input type="button" value="Logout" />');
 		$('#login_form').css('display','none');
 		
@@ -81,6 +81,11 @@ function login(){
 	}
 }
 
+//getTrimMangaTitle
+function getTrimMangaTitle(mTitle, t){
+	var trimTitle = mTitle.length > t ? mTitle.substring(0,t) + '...' : mTitle;
+	return trimTitle;
+}
 
 
 
