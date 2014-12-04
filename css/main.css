@@ -58,7 +58,7 @@ h1{
 }
 #div_login_register{
 	position:absolute;
-	top:5px;
+	top:0;
 	right:0;
 }
 #div_login_register input{
@@ -66,7 +66,7 @@ h1{
 }
 .ui-widget{
 	position:absolute;
-	top:18px;
+	top:14px;
 	right:154px;
 }
 #btn_login_register{}
@@ -210,7 +210,7 @@ h1{
 }
 /*Idotope divs*/
 .m2{
-	height:40px;
+	height:42px;
 	width:500px;
 	margin: 8px;
 	-webkit-border-radius: 10px;
@@ -219,6 +219,7 @@ h1{
 	/*background:yellow;*/
 	background: linear-gradient(to bottom, rgba(168,163,161,1) 0%,rgba(223,229,215,1) 40%,rgba(179,190,173,1) 100%); 
 	z-index:1;
+	/*padding-bottom:50px;*/
 }
 .m2_img{
 	height:100%;
