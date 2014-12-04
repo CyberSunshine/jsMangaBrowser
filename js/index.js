@@ -77,16 +77,22 @@ $(document).ready(function(){
 //Creation d'une liste random
 function generateRandomMangaList(){
 	var div = '';
-	var randomId = '';
+	var randomIdNoReapeat = [];
+	var rndThumbNoReapeat = [];
 	var id = '';
+	
+	emptyM1();
+	rndThumbNoReapeat = getRandomNoRepeat(12,70);
+	randomIdNoReapeat = getRandomNoRepeat(12,mangaList.length-1);
+	
 	for(var i = 0; i < 12; i++){
-		randomId = getRandomMangaId();
+		
 		div = '<div id="m' + i + '" class="m1">' + 
 		'<div class="m1_img">' +
-		'<a href="manga/somemanga.html"><img class="thumb" src="' + getRandomThumbnail() + '"/></a></div>' +
-		'<p class="m1_t">' + getTrimMangaTitle(getMangaTitleById(randomId),11) + '</p>' +
-		'<p class="m1_d">' + getMangaYearById(randomId) + '</p>' +
-		'<p class="m1_c">Vol: ' + getMangaChapterById(randomId) +'</p>' +
+		'<a href="manga/somemanga.html"><img class="thumb" src="' + getThumbnailById(rndThumbNoReapeat[i]) + '"/></a></div>' +
+		'<p class="m1_t">' + getTrimMangaTitle(getMangaTitleById(randomIdNoReapeat[i]),11) + '</p>' +
+		'<p class="m1_d">' + getMangaYearById(randomIdNoReapeat[i]) + '</p>' +
+		'<p class="m1_c">Vol: ' + getMangaChapterById(randomIdNoReapeat[i]) +'</p>' +
 		'</div>';
 		
 		$( "#main_div_p1_2" ).append( div );
@@ -97,19 +103,22 @@ function generateRandomMangaList(){
 //Creation de latest list
 function generateLatestMangaList(){
 	var div = '';
-	var randomId = '';
+	var randomIdNoReapeat = [];
+	var rndThumbNoReapeat = [];
 	var id = '';
 	
 	emptyM1();
+	rndThumbNoReapeat = getRandomNoRepeat(12,70);
+	randomIdNoReapeat = getRandomNoRepeat(12,mangaList.length-1);
 	
-	for(var i = 0; i < 12; i++){
-		randomId = getRandomMangaId();
+	for(var i = 0; i < randomIdNoReapeat.length; i++){
+		
 		div = '<div id="m' + i + '" class="m1">' +
 		'<div class="m1_img">' +
-		'<a href="manga/somemanga.html"><img class="thumb" src="' + getRandomThumbnail() + '"/></a></div>' +
-		'<p class="m1_t">' + getTrimMangaTitle(getMangaTitleById(randomId),11) + '</p>' +
+		'<a href="manga/somemanga.html"><img class="thumb" src="' + getThumbnailById(rndThumbNoReapeat[i]) + '"/></a></div>' +
+		'<p class="m1_t">' + getTrimMangaTitle(getMangaTitleById(randomIdNoReapeat[i]),11) + '</p>' +
 		'<p class="m1_d">' + getRandomReleaseTime() + '</p>' +
-		'<p class="m1_c">Vol: ' + getMangaChapterById(randomId) +'</p>' +
+		'<p class="m1_c">Vol: ' + getMangaChapterById(randomIdNoReapeat[i]) +'</p>' +
 		'</div>';
 		
 		$( "#main_div_p1_2" ).append( div );
@@ -190,10 +199,9 @@ function getRandomReleaseTime(){
 	return mTime;
 }
 
-//getRandomReleaseTime
-function getRandomThumbnail(){
-	var rnd = Math.floor(Math.random()*70 + 1);
-	return 'images/small/' + rnd + '.jpg'
+//getThumbnailById
+function getThumbnailById(id){
+	return 'images/small/' + id + '.jpg'
 }
 
 //Vider la div p1_2
@@ -220,4 +228,19 @@ function getRandomColor() {
         color += lettres[Math.round(Math.random() * 15)];
     }
     return color;
+}
+//getRandomNoRepeat - Duplicate manga on front page can be avoided with this n=number of numbers wanted, r = range
+function getRandomNoRepeat(n, r) {
+    var oNumbers = []; // ordered array
+    for (var i = 0; i < r; i++) {
+        oNumbers[i] = i + 1;
+    }
+    var rNumber;// random number between 0 and range
+    var result = []; // Array of non repeating numbers
+    for (var i = 0; i < n; i++) {
+        rNumber = Math.floor(Math.random() * oNumbers.length);
+        result[i] = oNumbers[rNumber];
+        oNumbers.splice(rNumber,1);//Remove selected index from array
+    }
+    return result;
 }
